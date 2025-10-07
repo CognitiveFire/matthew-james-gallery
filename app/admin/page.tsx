@@ -8,15 +8,26 @@ import { Artwork } from '@/types/artwork'
 import StatusBadge from '@/components/StatusBadge'
 
 export default function AdminPage() {
-  const [artworks, setArtworks] = useState<Artwork[]>(getAllArtworks())
+  const [artworks, setArtworks] = useState<Artwork[]>([])
   const [editingId, setEditingId] = useState<string | null>(null)
   const [editingArtwork, setEditingArtwork] = useState<Artwork | null>(null)
   const [isAddingNew, setIsAddingNew] = useState(false)
   const [isClient, setIsClient] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     setIsClient(true)
-  }, [artworks])
+    // Load artworks from localStorage if available, otherwise use default data
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('gallery-artworks')
+      if (saved) {
+        setArtworks(JSON.parse(saved))
+      } else {
+        setArtworks(getAllArtworks())
+      }
+    }
+    setIsLoading(false)
+  }, [])
 
   const handleEdit = (id: string) => {
     const artwork = artworks.find(a => a.id === id) || getArtworkById(id)
@@ -98,7 +109,25 @@ export default function AdminPage() {
     }
   }
 
-  // Always render - removed hydration check temporarily
+  // Show loading state to prevent hydration mismatch
+  if (!isClient || isLoading) {
+    return (
+      <div className="pt-20">
+        <section className="py-16 px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center">
+              <h1 className="font-serif text-4xl md:text-5xl font-light text-charcoal mb-4">
+                Admin Panel
+              </h1>
+              <p className="font-sans text-lg text-warm-gray">
+                Loading...
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    )
+  }
 
   return (
     <div className="pt-20">

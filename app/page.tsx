@@ -28,7 +28,7 @@ export default function HomePage() {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="py-24 px-6 lg:px-8">
+      <section className="pt-16 pb-8 px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="font-serif text-5xl md:text-7xl font-light text-charcoal mb-6 leading-tight">
@@ -43,7 +43,7 @@ export default function HomePage() {
       </section>
 
       {/* Gallery Section */}
-      <section className="py-16 px-6 lg:px-8">
+      <section className="pt-8 pb-16 px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
 
           {/* Artwork Grid */}

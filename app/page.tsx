@@ -35,8 +35,8 @@ export default function HomePage() {
               Matthew James Gallery
             </h1>
                 <p className="font-sans text-lg md:text-xl text-warm-gray max-w-2xl mx-auto leading-relaxed">
-                  Modern paintings with a sense of humour.<br />
-                  A mix of bold colour, character, and the occasional awkward moment. Snapshots of people and places caught somewhere between truth and imagination.
+                  Modern paintings with a sense of the absurd.<br />
+                  Bold colours mix with eccentric worlds with little concern for the rules. A Snapshot of people and places caught somewhere between truth and nightmare.
                 </p>
           </div>
         </div>

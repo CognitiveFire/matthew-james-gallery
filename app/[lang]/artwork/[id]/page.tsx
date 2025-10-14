@@ -78,12 +78,12 @@ export default function ArtworkPage({ params }: ArtworkPageProps) {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             {/* Image */}
-            <div className="relative aspect-[4/5] bg-cream overflow-hidden">
+            <div className="relative aspect-[4/5] bg-gray-100 overflow-hidden">
               <Image
                 src={artwork.imageUrl}
                 alt={artwork.title}
                 fill
-                className="object-contain"
+                className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 priority
               />

@@ -22,7 +22,7 @@ export const sampleArtworks: Artwork[] = [
     shortDescription: 'Wears judgement better than most people wear scarves.',
     materials: 'Acrylic on canvas',
     price: 15000,
-    imageUrl: 'https://i.ibb.co/ccDZnCLw/2.png',
+    imageUrl: 'https://i.ibb.co/bjFgQBqm/3-B7-DF6-AC-8897-4605-A0-C5-AAA78-D5031-A5-1-201-a.jpg',
     dimensions: '70cm × 50cm',
     year: 2024,
     available: true,

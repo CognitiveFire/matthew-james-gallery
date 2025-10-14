@@ -1,38 +1,67 @@
 'use client'
 
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { useState } from 'react'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Globe } from 'lucide-react'
 
-export default function Navigation() {
+interface NavigationProps {
+  lang: 'en' | 'no'
+}
+
+export default function Navigation({ lang }: NavigationProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const pathname = usePathname()
+  const router = useRouter()
+
+  const navTranslations = {
+    en: {
+      gallery: 'Home',
+      about: 'About',
+      shipping: 'Shipping',
+      contact: 'Contact',
+      title: 'Matthew James Gallery'
+    },
+    no: {
+      gallery: 'Hjem',
+      about: 'Om',
+      shipping: 'Frakt',
+      contact: 'Kontakt',
+      title: 'Matthew James Galleri'
+    }
+  }
+
+  const t = navTranslations[lang]
 
   const navItems = [
-    { name: 'Gallery', href: '/' },
-    { name: 'About', href: '/about' },
-    { name: 'Shipping', href: '/shipping' },
-    { name: 'Contact', href: '/contact' },
-    { name: 'Admin', href: '/admin' },
+    { name: t.gallery, href: `/${lang}` },
+    { name: t.about, href: `/${lang}/about` },
+    { name: t.shipping, href: `/${lang}/shipping` },
+    { name: t.contact, href: `/${lang}/contact` },
   ]
+
+  const switchLanguage = (newLang: 'en' | 'no') => {
+    const currentPath = pathname.replace(/^\/(en|no)/, '')
+    router.push(`/${newLang}${currentPath || ''}`)
+    document.cookie = `NEXT_LOCALE=${newLang}; path=/; max-age=31536000`
+  }
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-cream/95 backdrop-blur-sm border-b border-warm-gray/20">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3">
+          <Link href={`/${lang}`} className="flex items-center space-x-3">
             <div className="w-8 h-8 bg-charcoal rounded-sm flex items-center justify-center">
               <span className="text-cream font-serif text-xs font-bold">MJ</span>
             </div>
-            <span className="font-serif text-xl font-medium text-charcoal">
-              Matthew James Gallery
+            <span className="font-serif text-xl font-medium text-charcoal hidden sm:block">
+              {t.title}
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-12">
+          <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <Link
                 key={item.name}
@@ -46,6 +75,17 @@ export default function Navigation() {
                 {item.name}
               </Link>
             ))}
+            
+            {/* Language Switcher */}
+            <div className="flex items-center space-x-2 border-l border-warm-gray/20 pl-8">
+              <Globe className="w-4 h-4 text-warm-gray" />
+              <button
+                onClick={() => switchLanguage(lang === 'en' ? 'no' : 'en')}
+                className="font-sans text-sm font-medium text-warm-gray hover:text-charcoal transition-colors"
+              >
+                {lang === 'en' ? 'NO' : 'EN'}
+              </button>
+            </div>
           </div>
 
           {/* Mobile menu button */}
@@ -75,6 +115,18 @@ export default function Navigation() {
                   {item.name}
                 </Link>
               ))}
+              
+              {/* Mobile Language Switcher */}
+              <button
+                onClick={() => {
+                  switchLanguage(lang === 'en' ? 'no' : 'en')
+                  setIsMenuOpen(false)
+                }}
+                className="font-sans text-base font-medium text-warm-gray hover:text-charcoal transition-colors flex items-center space-x-2"
+              >
+                <Globe className="w-4 h-4" />
+                <span>{lang === 'en' ? 'Norsk' : 'English'}</span>
+              </button>
             </div>
           </div>
         )}

@@ -10,8 +10,36 @@ import StatusBadge from '@/components/StatusBadge'
 import { useState, useEffect } from 'react'
 import { Artwork } from '@/types/artwork'
 
-export default function HomePage() {
+interface HomePageProps {
+  params: { lang: 'en' | 'no' }
+}
+
+export default function HomePage({ params }: HomePageProps) {
+  const { lang } = params
   const [artworks, setArtworks] = useState<Artwork[]>(getAllArtworks())
+
+  const translations = {
+    en: {
+      title: 'Matthew James Gallery',
+      subtitle: 'Modern paintings with a sense of the absurd. Bold colours mix with eccentric worlds with little concern for the rules. A Snapshot of people and places caught somewhere between truth and nightmare.',
+      viewDetails: 'View Details',
+      interestedTitle: 'Interested in a piece?',
+      interestedText: 'Contact us to inquire about availability, pricing, or to arrange a viewing.',
+      getInTouch: 'Get in Touch',
+      nok: 'NOK'
+    },
+    no: {
+      title: 'Matthew James Galleri',
+      subtitle: 'Moderne malerier med en sans for det absurde. Dristige farger møter eksentriske verdener med liten respekt for reglene. Et øyeblikksbilde av mennesker og steder fanget et sted mellom sannhet og mareritt.',
+      viewDetails: 'Se Detaljer',
+      interestedTitle: 'Interessert i et verk?',
+      interestedText: 'Kontakt oss for å spørre om tilgjengelighet, pris eller for å avtale visning.',
+      getInTouch: 'Ta Kontakt',
+      nok: 'NOK'
+    }
+  }
+
+  const t = translations[lang]
 
   useEffect(() => {
     // Load artworks from localStorage if available
@@ -32,11 +60,10 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="font-serif text-5xl md:text-7xl font-light text-charcoal mb-6 leading-tight">
-              Matthew James Gallery
+              {t.title}
             </h1>
                 <p className="font-sans text-lg md:text-xl text-warm-gray max-w-2xl mx-auto leading-relaxed">
-                  Modern paintings with a sense of the absurd.<br />
-                  Bold colours mix with eccentric worlds with little concern for the rules. A Snapshot of people and places caught somewhere between truth and nightmare.
+                  {t.subtitle}
                 </p>
           </div>
         </div>
@@ -50,7 +77,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
             {artworks.sort((a, b) => parseInt(b.id) - parseInt(a.id)).map((artwork) => (
               <div key={artwork.id} className="artwork-card group">
-                <Link href={`/artwork/${artwork.id}`} className="block">
+                <Link href={`/${lang}/artwork/${artwork.id}`} className="block">
                   <div className="relative aspect-[4/5] overflow-hidden bg-gray-100">
                     <Image
                       src={artwork.imageUrl}
@@ -89,7 +116,7 @@ export default function HomePage() {
                       {artwork.dimensions}
                     </span>
                     <span className="font-serif text-lg font-medium text-charcoal">
-                      {artwork.price.toLocaleString()} NOK
+                      {artwork.price.toLocaleString()} {t.nok}
                     </span>
                   </div>
                   <div className="flex justify-between items-center">
@@ -99,10 +126,10 @@ export default function HomePage() {
                       className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                     />
                     <Link 
-                      href={`/artwork/${artwork.id}`}
+                      href={`/${lang}/artwork/${artwork.id}`}
                       className="font-sans text-sm text-warm-gray hover:text-charcoal transition-colors duration-300"
                     >
-                      View Details →
+                      {t.viewDetails} →
                     </Link>
                   </div>
                 </div>
@@ -113,13 +140,13 @@ export default function HomePage() {
           {/* Call to Action */}
           <div className="text-center mt-16 pt-16 border-t border-warm-gray/20">
             <h3 className="font-serif text-2xl font-light text-charcoal mb-4">
-              Interested in a piece?
+              {t.interestedTitle}
             </h3>
             <p className="font-sans text-warm-gray mb-8 max-w-2xl mx-auto">
-              Contact us to inquire about availability, pricing, or to arrange a viewing.
+              {t.interestedText}
             </p>
-            <Link href="/contact" className="btn-primary inline-block">
-              Get in Touch
+            <Link href={`/${lang}/contact`} className="btn-primary inline-block">
+              {t.getInTouch}
             </Link>
           </div>
         </div>

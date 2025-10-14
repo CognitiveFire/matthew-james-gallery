@@ -1,0 +1,10 @@
+# robots.txt for Matthew James Gallery
+
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api/
+
+# Sitemaps
+Sitemap: https://matthewjamesgallery.com/sitemap.xml
+

@@ -1,0 +1,91 @@
+{
+  "nav": {
+    "home": "Hjem",
+    "about": "Om",
+    "contact": "Kontakt",
+    "shipping": "Frakt"
+  },
+  "home": {
+    "title": "Matthew James Galleri",
+    "subtitle": "Moderne malerier med en sans for det absurde. Dristige farger møter eksentriske verdener med liten respekt for reglene. Et øyeblikksbilde av mennesker og steder fanget et sted mellom sannhet og mareritt.",
+    "viewDetails": "Se Detaljer",
+    "interestedTitle": "Interessert i et verk?",
+    "interestedText": "Kontakt oss for å spørre om tilgjengelighet, pris eller for å avtale visning.",
+    "getInTouch": "Ta Kontakt"
+  },
+  "about": {
+    "title": "Om Kunstneren",
+    "subtitle": "Oppdag historien bak Matthew James Galleri",
+    "artistStatement": "Kunstneruttalelse",
+    "artistName": "Matthew James",
+    "artistLocation": "Engelsk kunstner bosatt i Bergen, Norge",
+    "statement1": "Matthew James er en engelsk kunstner bosatt i Bergen, Norge. Verkene hans blander moderne ekspresjonisme med en tørr humoristisk sans, og fanger den merkelige skjønnheten i hverdagslivet. Ansikter, byer og flyktige øyeblikk fremstår i dristige farger og løse former, alltid ærlige, noen ganger ironiske, men aldri overtenkte.",
+    "quote": "Jeg maler fordi jeg må. Mesteparten av tiden begynner jeg uten å vite hvordan det blir. Prosessen avgjør resultatet, jeg følger bare hvor fargene leder meg.",
+    "statement2": "Hvert maleri bærer preg av spontanitet og vidd, og avslører ofte sin historie først etter at det er ferdig. Resultatet er en samling verk som føles levende, menneskelig og litt uforutsigbar, akkurat som kunstneren selv.",
+    "processTitle": "Prosessen",
+    "processSubtitle": "Spontan skapelse veiledet av intuisjon",
+    "step1Title": "Begynn Uten å Vite",
+    "step1Text": "Hvert maleri begynner uten et forhåndsbestemt resultat, og lar prosessen veilede skapelsen.",
+    "step2Title": "Følg Fargene",
+    "step2Text": "Dristige farger og løse former dukker opp naturlig og avslører historien etter hvert som maleriet utvikler seg.",
+    "step3Title": "Avslør Historien",
+    "step3Text": "Den sanne betydningen og fortellingen blir ofte først klar etter at verket er fullført.",
+    "bergenTitle": "Inspirert av Bergen",
+    "bergen1": "Bergen, Norge fungerer både som hjem og muse for Matthew James. Byens dramatiske landskap, stadig skiftende vær og livlige kulturscene gir uendelig inspirasjon for arbeidet hans.",
+    "bergen2": "I likhet med maleriene hans er Bergen levende, menneskelig og litt uforutsigbar, en perfekt match for en kunstner som omfavner spontanitet og følger hvor fargene leder.",
+    "exploreTitle": "Utforsk Samlingen",
+    "exploreText": "Oppdag den spontane skjønnheten og ærlige uttrykket i Matthew James' kunstsamling.",
+    "viewGallery": "Se Galleriet",
+    "modernExpressionism": "Moderne Ekspresjonisme",
+    "boldColour": "Dristig Farge & Løs Form",
+    "spontaneousProcess": "Spontan Prosess"
+  },
+  "artwork": {
+    "materials": "Materialer",
+    "dimensions": "Mål",
+    "year": "År",
+    "price": "Pris",
+    "available": "Tilgjengelig",
+    "sold": "Solgt",
+    "inquire": "Spør om Dette Verket",
+    "moreWorks": "Flere Verk",
+    "shareOn": "Del på"
+  },
+  "contact": {
+    "title": "Ta Kontakt",
+    "subtitle": "Interessert i et verk? Har du spørsmål? La oss snakke.",
+    "name": "Navn",
+    "email": "E-post",
+    "message": "Melding",
+    "send": "Send Melding",
+    "namePlaceholder": "Ditt navn",
+    "emailPlaceholder": "din@epost.no",
+    "messagePlaceholder": "Fortell meg om din interesse...",
+    "directContact": "Direkte Kontakt",
+    "visitStudio": "Besøk Atelieret",
+    "studioText": "Lokalisert i Bergen, Norge. Atelierbesøk tilgjengelig etter avtale."
+  },
+  "shipping": {
+    "title": "Frakt & Levering",
+    "subtitle": "Sikker levering av kunstverk",
+    "norwegianTitle": "Norsk Levering",
+    "norwegianText": "Gratis levering innenfor Norge. Kunstverket blir nøye pakket og levert innen 5-7 virkedager.",
+    "europeanTitle": "Europeisk Frakt",
+    "europeanText": "Frakt til europeiske land tilgjengelig. Leveringstid 7-14 virkedager. Fraktkostnader beregnes ved kassen.",
+    "internationalTitle": "Internasjonal Frakt",
+    "internationalText": "Verdensomspennende frakt tilgjengelig. Leveringstid varierer etter lokasjon. Alle toll- og importavgifter er kjøpers ansvar.",
+    "packagingTitle": "Profesjonell Emballasje",
+    "packagingText": "Hvert kunstverk pakkes profesjonelt med beskyttende materialer for å sikre trygg levering. Store verk sendes i spesialbygde kasser.",
+    "questions": "Spørsmål om frakt? ",
+    "contactUs": "Kontakt oss"
+  },
+  "footer": {
+    "rights": "Alle rettigheter reservert",
+    "followUs": "Følg Oss"
+  },
+  "common": {
+    "nok": "NOK",
+    "likes": "liker"
+  }
+}
+

@@ -1,0 +1,91 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "shipping": "Shipping"
+  },
+  "home": {
+    "title": "Matthew James Gallery",
+    "subtitle": "Modern paintings with a sense of the absurd. Bold colours mix with eccentric worlds with little concern for the rules. A Snapshot of people and places caught somewhere between truth and nightmare.",
+    "viewDetails": "View Details",
+    "interestedTitle": "Interested in a piece?",
+    "interestedText": "Contact us to inquire about availability, pricing, or to arrange a viewing.",
+    "getInTouch": "Get in Touch"
+  },
+  "about": {
+    "title": "About the Artist",
+    "subtitle": "Discover the story behind Matthew James Gallery",
+    "artistStatement": "Artist Statement",
+    "artistName": "Matthew James",
+    "artistLocation": "English artist based in Bergen, Norway",
+    "statement1": "Matthew James is an English artist based in Bergen, Norway. His work blends modern expressionism with a dry sense of humour, capturing the strange beauty of everyday life. Faces, cities, and fleeting moments appear in bold colour and loose form, always honest, sometimes ironic but never overthought.",
+    "quote": "I paint because I have to. Most of the time I start without knowing how it will finish. The process decides the outcome, I just follow where the colour leads.",
+    "statement2": "Each painting carries a touch of spontaneity and wit, often revealing its story only after it's finished. The result is a body of work that feels alive, human, and slightly unpredictable, much like the artist himself.",
+    "processTitle": "The Process",
+    "processSubtitle": "Spontaneous creation guided by intuition",
+    "step1Title": "Start Without Knowing",
+    "step1Text": "Each painting begins without a predetermined outcome, allowing the process to guide the creation.",
+    "step2Title": "Follow the Colour",
+    "step2Text": "Bold colours and loose forms emerge naturally, revealing the story as the painting develops.",
+    "step3Title": "Reveal the Story",
+    "step3Text": "The true meaning and narrative often becomes clear only after the work is complete.",
+    "bergenTitle": "Inspired by Bergen",
+    "bergen1": "Bergen, Norway serves as both home and muse for Matthew James. The city's dramatic landscapes, ever-changing weather, and vibrant cultural scene provide endless inspiration for his work.",
+    "bergen2": "Much like his paintings, Bergen is alive, human, and slightly unpredictable, a perfect match for an artist who embraces spontaneity and follows where the colour leads.",
+    "exploreTitle": "Explore the Collection",
+    "exploreText": "Discover the spontaneous beauty and honest expression in Matthew James's artwork collection.",
+    "viewGallery": "View Gallery",
+    "modernExpressionism": "Modern Expressionism",
+    "boldColour": "Bold Colour & Loose Form",
+    "spontaneousProcess": "Spontaneous Process"
+  },
+  "artwork": {
+    "materials": "Materials",
+    "dimensions": "Dimensions",
+    "year": "Year",
+    "price": "Price",
+    "available": "Available",
+    "sold": "Sold",
+    "inquire": "Inquire About This Piece",
+    "moreWorks": "More Works",
+    "shareOn": "Share on"
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Interested in a piece? Have questions? Let's talk.",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send Message",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "your@email.com",
+    "messagePlaceholder": "Tell me about your interest...",
+    "directContact": "Direct Contact",
+    "visitStudio": "Visit the Studio",
+    "studioText": "Located in Bergen, Norway. Studio visits available by appointment."
+  },
+  "shipping": {
+    "title": "Shipping & Delivery",
+    "subtitle": "Safe delivery of your artwork",
+    "norwegianTitle": "Norwegian Delivery",
+    "norwegianText": "Free delivery within Norway. Your artwork will be carefully packaged and delivered within 5-7 business days.",
+    "europeanTitle": "European Shipping",
+    "europeanText": "Shipping to European countries available. Delivery time 7-14 business days. Shipping costs calculated at checkout.",
+    "internationalTitle": "International Shipping",
+    "internationalText": "Worldwide shipping available. Delivery time varies by location. All customs and import fees are the responsibility of the buyer.",
+    "packagingTitle": "Professional Packaging",
+    "packagingText": "Each artwork is professionally packaged with protective materials to ensure safe delivery. Large pieces are shipped in custom-built crates.",
+    "questions": "Questions about shipping? ",
+    "contactUs": "Contact us"
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "followUs": "Follow Us"
+  },
+  "common": {
+    "nok": "NOK",
+    "likes": "likes"
+  }
+}
+

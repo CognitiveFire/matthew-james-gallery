@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
 import { getArtworkById, getAllArtworks } from '@/data/artwork'
+import { getLocalizedArtwork } from '@/lib/artwork-utils'
 import { ArrowLeft, Calendar, Palette, Ruler } from 'lucide-react'
 import LikeButton from '@/components/LikeButton'
 import SocialShare from '@/components/SocialShare'
@@ -58,6 +59,8 @@ export default function ArtworkPage({ params }: ArtworkPageProps) {
     return <div>Artwork not found</div>
   }
 
+  const localizedArtwork = getLocalizedArtwork(artwork, lang)
+
   return (
     <div className="pt-20">
       {/* Back Navigation */}
@@ -81,7 +84,7 @@ export default function ArtworkPage({ params }: ArtworkPageProps) {
             <div className="relative aspect-[4/5] bg-gray-100 overflow-hidden">
               <Image
                 src={artwork.imageUrl}
-                alt={artwork.title}
+                alt={localizedArtwork.title}
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -97,17 +100,17 @@ export default function ArtworkPage({ params }: ArtworkPageProps) {
               <div>
                 <div className="flex justify-between items-start mb-4">
                   <h1 className="font-serif text-4xl md:text-5xl font-light text-charcoal">
-                    {artwork.title}
+                    {localizedArtwork.title}
                   </h1>
                   <SocialShare 
                     artworkId={artwork.id}
-                    title={artwork.title}
+                    title={localizedArtwork.title}
                     imageUrl={artwork.imageUrl}
                     className="ml-4"
                   />
                 </div>
                 <p className="font-sans text-lg text-warm-gray leading-relaxed mb-6">
-                  {artwork.description}
+                  {localizedArtwork.description}
                 </p>
                 <div className="flex items-center space-x-6">
                   <LikeButton 

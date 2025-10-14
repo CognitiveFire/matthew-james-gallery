@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { getAllArtworks } from '@/data/artwork'
+import { getLocalizedArtwork } from '@/lib/artwork-utils'
 import { Eye } from 'lucide-react'
 import LikeButton from '@/components/LikeButton'
 import SocialShare from '@/components/SocialShare'
@@ -75,13 +76,15 @@ export default function HomePage({ params }: HomePageProps) {
 
           {/* Artwork Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
-            {artworks.sort((a, b) => parseInt(b.id) - parseInt(a.id)).map((artwork) => (
+            {artworks.sort((a, b) => parseInt(b.id) - parseInt(a.id)).map((artwork) => {
+              const localizedArtwork = getLocalizedArtwork(artwork, lang)
+              return (
               <div key={artwork.id} className="artwork-card group">
                 <Link href={`/${lang}/artwork/${artwork.id}`} className="block">
                   <div className="relative aspect-[4/5] overflow-hidden bg-gray-100">
                     <Image
                       src={artwork.imageUrl}
-                      alt={artwork.title}
+                      alt={localizedArtwork.title}
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-110"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -99,17 +102,17 @@ export default function HomePage({ params }: HomePageProps) {
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-2">
                     <h3 className="font-serif text-xl font-medium text-charcoal">
-                      {artwork.title}
+                      {localizedArtwork.title}
                     </h3>
                     <SocialShare 
                       artworkId={artwork.id}
-                      title={artwork.title}
+                      title={localizedArtwork.title}
                       imageUrl={artwork.imageUrl}
                       className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                     />
                   </div>
                   <p className="font-sans text-sm text-warm-gray mb-4 line-clamp-2">
-                    {artwork.shortDescription}
+                    {localizedArtwork.shortDescription}
                   </p>
                   <div className="flex justify-between items-center mb-3">
                     <span className="font-sans text-sm text-warm-gray">
@@ -134,7 +137,8 @@ export default function HomePage({ params }: HomePageProps) {
                   </div>
                 </div>
               </div>
-            ))}
+            )}
+            )}
           </div>
 
           {/* Call to Action */}

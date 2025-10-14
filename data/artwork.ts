@@ -3,9 +3,21 @@ import { Artwork } from '@/types/artwork'
 export const sampleArtworks: Artwork[] = [
   {
     id: '1',
-    title: 'The Listener',
-    description: 'He\'s been listening for a while, though no one\'s quite sure to what. The Listener mixes bold colour and awkward confidence, with those oversized eyes taking everything in and giving nothing away. The rough brushwork and punchy coral tones make it both serious and a bit ridiculous, like someone who\'s just realised they might be in the wrong room but refuses to leave. It\'s modern, expressive, and quietly funny, a reminder that intensity and humour often share the same face.',
-    shortDescription: 'He\'s been listening all day and still isn\'t sure what he\'s heard.',
+    title: 'Lytteren',
+    description: 'Han har lyttet en stund, selv om ingen er helt sikre på hva. Lytteren blander dristige farger og awkward selvtillit, med de store øynene som tar alt inn og gir ingenting tilbake. Det grove penselarbeidet og de kraftige koralltone gjør det både alvorlig og litt latterlig, som noen som nettopp har innsett at de kanskje er i feil rom, men nekter å forlate. Det er moderne, uttryksfullt og stille morsomt, en påminnelse om at intensitet og humor ofte deler samme ansikt.',
+    shortDescription: 'Han har lyttet hele dagen og er fortsatt ikke sikker på hva han har hørt.',
+    translations: {
+      en: {
+        title: 'The Listener',
+        description: 'He\'s been listening for a while, though no one\'s quite sure to what. The Listener mixes bold colour and awkward confidence, with those oversized eyes taking everything in and giving nothing away. The rough brushwork and punchy coral tones make it both serious and a bit ridiculous, like someone who\'s just realised they might be in the wrong room but refuses to leave. It\'s modern, expressive, and quietly funny, a reminder that intensity and humour often share the same face.',
+        shortDescription: 'He\'s been listening all day and still isn\'t sure what he\'s heard.',
+      },
+      no: {
+        title: 'Lytteren',
+        description: 'Han har lyttet en stund, selv om ingen er helt sikre på hva. Lytteren blander dristige farger og awkward selvtillit, med de store øynene som tar alt inn og gir ingenting tilbake. Det grove penselarbeidet og de kraftige koralltone gjør det både alvorlig og litt latterlig, som noen som nettopp har innsett at de kanskje er i feil rom, men nekter å forlate. Det er moderne, uttryksfullt og stille morsomt, en påminnelse om at intensitet og humor ofte deler samme ansikt.',
+        shortDescription: 'Han har lyttet hele dagen og er fortsatt ikke sikker på hva han har hørt.',
+      }
+    },
     materials: 'Acrylic on canvas',
     price: 15000,
     imageUrl: 'https://i.ibb.co/Lh0nWty9/1.png',
@@ -17,9 +29,21 @@ export const sampleArtworks: Artwork[] = [
   },
   {
     id: '2',
-    title: 'Winter Fox',
-    description: 'Wrapped in her finest coat and sharper opinions, Winter Fox is an elegant older lady who enjoys a good walk, mostly so she can judge everyone she passes. Her oversized glasses and calm confidence say she\'s seen it all and probably didn\'t approve of most of it. Painted in cool blues and warm yellows, she\'s part fashion, part frost, and entirely unapologetic.',
-    shortDescription: 'Wears judgement better than most people wear scarves.',
+    title: 'Vinterreven',
+    description: 'Innpakket i sin fineste frakk og skarpere meninger, er Vinterreven en elegant eldre dame som liker en god tur, mest slik at hun kan dømme alle hun passerer. De store brillene og den rolige selvtilliten forteller at hun har sett det hele og sannsynligvis ikke godkjente det meste. Malt i kjølige blåtoner og varme gultoner, er hun delvis mote, delvis frost, og helt og holdent unnskyldningsfri.',
+    shortDescription: 'Bærer dom bedre enn de fleste bærer skjerf.',
+    translations: {
+      en: {
+        title: 'Winter Fox',
+        description: 'Wrapped in her finest coat and sharper opinions, Winter Fox is an elegant older lady who enjoys a good walk, mostly so she can judge everyone she passes. Her oversized glasses and calm confidence say she\'s seen it all and probably didn\'t approve of most of it. Painted in cool blues and warm yellows, she\'s part fashion, part frost, and entirely unapologetic.',
+        shortDescription: 'Wears judgement better than most people wear scarves.',
+      },
+      no: {
+        title: 'Vinterreven',
+        description: 'Innpakket i sin fineste frakk og skarpere meninger, er Vinterreven en elegant eldre dame som liker en god tur, mest slik at hun kan dømme alle hun passerer. De store brillene og den rolige selvtilliten forteller at hun har sett det hele og sannsynligvis ikke godkjente det meste. Malt i kjølige blåtoner og varme gultoner, er hun delvis mote, delvis frost, og helt og holdent unnskyldningsfri.',
+        shortDescription: 'Bærer dom bedre enn de fleste bærer skjerf.',
+      }
+    },
     materials: 'Acrylic on canvas',
     price: 15000,
     imageUrl: 'https://i.ibb.co/bjFgQBqm/3-B7-DF6-AC-8897-4605-A0-C5-AAA78-D5031-A5-1-201-a.jpg',

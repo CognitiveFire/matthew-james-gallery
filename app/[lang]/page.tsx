@@ -78,12 +78,12 @@ export default function HomePage({ params }: HomePageProps) {
             {artworks.sort((a, b) => parseInt(b.id) - parseInt(a.id)).map((artwork) => (
               <div key={artwork.id} className="artwork-card group">
                 <Link href={`/${lang}/artwork/${artwork.id}`} className="block">
-                  <div className="relative aspect-[4/5] overflow-hidden bg-gray-100">
+                  <div className="relative aspect-[4/5] overflow-hidden bg-cream">
                     <Image
                       src={artwork.imageUrl}
                       alt={artwork.title}
                       fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                      className="object-contain transition-transform duration-700 group-hover:scale-105"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300 flex items-center justify-center">

@@ -12,12 +12,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 1,
-      alternates: {
-        languages: {
-          en: `${baseUrl}/en`,
-          no: `${baseUrl}/no`,
-        },
-      },
     },
     {
       url: `${baseUrl}/no`,
@@ -30,12 +24,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
-      alternates: {
-        languages: {
-          en: `${baseUrl}/en/about`,
-          no: `${baseUrl}/no/about`,
-        },
-      },
     },
     {
       url: `${baseUrl}/no/about`,
@@ -48,12 +36,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.7,
-      alternates: {
-        languages: {
-          en: `${baseUrl}/en/contact`,
-          no: `${baseUrl}/no/contact`,
-        },
-      },
     },
     {
       url: `${baseUrl}/no/contact`,
@@ -66,12 +48,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.6,
-      alternates: {
-        languages: {
-          en: `${baseUrl}/en/shipping`,
-          no: `${baseUrl}/no/shipping`,
-        },
-      },
     },
     {
       url: `${baseUrl}/no/shipping`,
@@ -88,12 +64,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
       priority: 0.9,
-      alternates: {
-        languages: {
-          en: `${baseUrl}/en/artwork/${artwork.id}`,
-          no: `${baseUrl}/no/artwork/${artwork.id}`,
-        },
-      },
     },
     {
       url: `${baseUrl}/no/artwork/${artwork.id}`,

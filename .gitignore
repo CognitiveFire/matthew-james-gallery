@@ -34,3 +34,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# temporary files and screenshots in root
+/*.jpg
+/*.jpeg
+/*.png
+/*.JPG
+/*.JPEG
+/*.PNG

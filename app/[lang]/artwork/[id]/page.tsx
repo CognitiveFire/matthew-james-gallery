@@ -14,10 +14,12 @@ import { Artwork } from '@/types/artwork'
 interface ArtworkPageProps {
   params: {
     id: string
+    lang: 'en' | 'no'
   }
 }
 
 export default function ArtworkPage({ params }: ArtworkPageProps) {
+  const { id, lang } = params
   const [artwork, setArtwork] = useState<Artwork | null>(null)
   const [isLoading, setIsLoading] = useState(true)
 
@@ -62,7 +64,7 @@ export default function ArtworkPage({ params }: ArtworkPageProps) {
       <div className="py-6 px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <Link 
-            href="/" 
+            href={`/${lang}`} 
             className="inline-flex items-center space-x-2 font-sans text-warm-gray hover:text-charcoal transition-colors duration-300"
           >
             <ArrowLeft size={20} />
@@ -145,10 +147,10 @@ export default function ArtworkPage({ params }: ArtworkPageProps) {
 
                 {artwork.available ? (
                   <div className="space-y-4">
-                    <Link href="/contact" className="btn-primary w-full text-center block">
+                    <Link href={`/${lang}/contact`} className="btn-primary w-full text-center block">
                       Inquire About Purchase
                     </Link>
-                    <Link href="/shipping" className="btn-secondary w-full text-center block">
+                    <Link href={`/${lang}/shipping`} className="btn-secondary w-full text-center block">
                       Shipping Information
                     </Link>
                   </div>

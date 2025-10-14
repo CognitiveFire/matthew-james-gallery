@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { Mail, Phone, MapPin, Send } from 'lucide-react'
 
-export default function ContactPage() {
+export default function ContactPage({ params }: { params: { lang: 'en' | 'no' } }) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',

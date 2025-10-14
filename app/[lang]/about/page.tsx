@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-export default function AboutPage() {
+export default function AboutPage({ params }: { params: { lang: 'en' | 'no' } }) {
   return (
     <div className="pt-20">
       {/* Hero Section */}

@@ -1,7 +1,7 @@
 import { Truck, Shield, Clock, Globe, Package, CheckCircle, AlertCircle } from 'lucide-react'
 import Link from 'next/link'
 
-export default function ShippingPage() {
+export default function ShippingPage({ params }: { params: { lang: 'en' | 'no' } }) {
   return (
     <div className="pt-20">
       {/* Header */}

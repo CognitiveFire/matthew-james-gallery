@@ -124,7 +124,7 @@ export default function AboutPage() {
             <div className="bg-warm-gray/10 p-8 text-center">
               <div className="relative w-48 h-48 mx-auto mb-6">
                 <Image
-                  src="/images/profile.png"
+                  src="https://i.ibb.co/2Yd8zqy1/profile.png"
                   alt="Matthew James - Artist Portrait"
                   fill
                   className="object-cover rounded-full"

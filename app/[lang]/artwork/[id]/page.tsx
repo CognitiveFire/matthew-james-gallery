@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { getArtworkById, getAllArtworks } from '@/data/artwork'
 import { getLocalizedArtwork } from '@/lib/artwork-utils'
+import { generateArtworkStructuredData, generateBreadcrumbStructuredData } from '@/lib/structured-data'
 import { ArrowLeft, Calendar, Palette, Ruler } from 'lucide-react'
 import LikeButton from '@/components/LikeButton'
 import SocialShare from '@/components/SocialShare'
@@ -61,7 +62,24 @@ export default function ArtworkPage({ params }: ArtworkPageProps) {
 
   const localizedArtwork = getLocalizedArtwork(artwork, lang)
 
+  const breadcrumbItems = [
+    { name: lang === 'no' ? 'Hjem' : 'Home', url: `/${lang}` },
+    { name: localizedArtwork.title, url: `/${lang}/artwork/${artwork.id}` }
+  ]
+
+  const artworkStructuredData = generateArtworkStructuredData(artwork, lang)
+  const breadcrumbStructuredData = generateBreadcrumbStructuredData(breadcrumbItems, lang)
+
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(artworkStructuredData) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbStructuredData) }}
+      />
     <div className="pt-20">
       {/* Back Navigation */}
       <div className="py-6 px-6 lg:px-8">
@@ -168,5 +186,6 @@ export default function ArtworkPage({ params }: ArtworkPageProps) {
         </div>
       </section>
     </div>
+    </>
   )
 }

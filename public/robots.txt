@@ -1,10 +1,26 @@
 # robots.txt for Matthew James Gallery
 
+# Allow all search engines
 User-agent: *
 Allow: /
 Disallow: /admin
 Disallow: /api/
+Disallow: /_next/
+Disallow: /private/
+
+# Crawl delay for better performance
+Crawl-delay: 0.5
 
 # Sitemaps
 Sitemap: https://matthewjamesgallery.com/sitemap.xml
+
+# Allow specific bots with no restrictions
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
 

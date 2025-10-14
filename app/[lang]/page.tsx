@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { getAllArtworks } from '@/data/artwork'
 import { getLocalizedArtwork } from '@/lib/artwork-utils'
+import { generateOrganizationStructuredData } from '@/lib/structured-data'
 import { Eye } from 'lucide-react'
 import LikeButton from '@/components/LikeButton'
 import SocialShare from '@/components/SocialShare'
@@ -54,7 +55,14 @@ export default function HomePage({ params }: HomePageProps) {
     }
   }, [])
 
+  const organizationData = generateOrganizationStructuredData(lang)
+
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationData) }}
+      />
     <div className="pt-20">
       {/* Hero Section */}
       <section className="pt-16 pb-8 px-6 lg:px-8">
@@ -156,5 +164,6 @@ export default function HomePage({ params }: HomePageProps) {
         </div>
       </section>
     </div>
+    </>
   )
 }

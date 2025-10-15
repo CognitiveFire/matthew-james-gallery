@@ -129,7 +129,7 @@ export const sampleArtworks: Artwork[] = [
     materials: 'Acrylic on canvas',
     price: 10000,
     imageUrl: 'https://i.ibb.co/rKT2qXDF/5.png',
-    secondImageUrl: 'https://i.ibb.co/50ycsJN/listener.jpg', // Using listener.jpg as closest match for bird artwork
+    secondImageUrl: 'https://i.ibb.co/fzSck7JV/thebirdwhonewtoolittle.jpg',
     dimensions: '50cm × 30cm',
     year: 2023,
     available: true,
@@ -291,7 +291,7 @@ export const sampleArtworks: Artwork[] = [
     materials: 'Acrylic on canvas',
     price: 15000,
     imageUrl: 'https://i.ibb.co/ccQGmx6H/11.png',
-    secondImageUrl: 'https://i.ibb.co/n8mQCGz5/garden.jpg', // Using garden.jpg as closest match for rain/weather artwork
+    secondImageUrl: 'https://i.ibb.co/ynQqzSRt/itsrainingagain.jpg',
     dimensions: '50cm × 50cm',
     year: 2024,
     available: true,

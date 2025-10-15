@@ -1,17 +1,20 @@
 import { Truck, Shield, Clock, Globe, Package, CheckCircle, AlertCircle } from 'lucide-react'
 import Link from 'next/link'
+import { getDictionary } from '@/lib/dictionaries'
 
-export default function ShippingPage({ params }: { params: { lang: 'en' | 'no' } }) {
+export default async function ShippingPage({ params }: { params: { lang: 'en' | 'no' } }) {
+  const dict = await getDictionary(params.lang)
+  const t = dict.shipping
   return (
     <div className="pt-20">
       {/* Header */}
       <section className="py-16 px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="font-serif text-4xl md:text-5xl font-light text-charcoal mb-6">
-            Shipping & Returns
+            {t.title}
           </h1>
           <p className="font-sans text-lg text-warm-gray max-w-2xl mx-auto">
-            All artworks are shipped safely, fully insured, and carefully packed from Bergen, Norway. Each piece includes a certificate of authenticity and arrives ready to hang.
+            {t.subtitle}
           </p>
         </div>
       </section>
@@ -22,10 +25,10 @@ export default function ShippingPage({ params }: { params: { lang: 'en' | 'no' }
           {/* Shipping Zones */}
           <div>
             <h2 className="font-serif text-3xl font-light text-charcoal mb-8">
-              Shipping Zones
+              {t.shippingZones}
             </h2>
             <p className="font-sans text-warm-gray mb-8">
-              All shipments include tracking, full-value insurance, and secure protective packaging. Larger works are sent in custom art boxes or wooden crates for extra safety.
+              {t.shippingDescription}
             </p>
             
             <div className="bg-white border border-warm-gray/20 shadow-sm overflow-hidden">
@@ -33,30 +36,30 @@ export default function ShippingPage({ params }: { params: { lang: 'en' | 'no' }
                 <table className="w-full">
                   <thead className="bg-cream">
                     <tr>
-                      <th className="px-6 py-4 text-left font-serif text-lg font-medium text-charcoal">Zone</th>
-                      <th className="px-6 py-4 text-left font-serif text-lg font-medium text-charcoal">Large Works<br/><span className="text-sm font-sans text-warm-gray">(over 50 × 50 cm)</span></th>
-                      <th className="px-6 py-4 text-left font-serif text-lg font-medium text-charcoal">Small Works<br/><span className="text-sm font-sans text-warm-gray">(up to 50 × 50 cm)</span></th>
-                      <th className="px-6 py-4 text-left font-serif text-lg font-medium text-charcoal">Delivery Time</th>
+                      <th className="px-6 py-4 text-left font-serif text-lg font-medium text-charcoal">{t.zone}</th>
+                      <th className="px-6 py-4 text-left font-serif text-lg font-medium text-charcoal">{t.largeWorks}<br/><span className="text-sm font-sans text-warm-gray">{t.largeWorksDesc}</span></th>
+                      <th className="px-6 py-4 text-left font-serif text-lg font-medium text-charcoal">{t.smallWorks}<br/><span className="text-sm font-sans text-warm-gray">{t.smallWorksDesc}</span></th>
+                      <th className="px-6 py-4 text-left font-serif text-lg font-medium text-charcoal">{t.deliveryTime}</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-warm-gray/10">
                     <tr>
-                      <td className="px-6 py-4 font-sans font-medium text-charcoal">Norway</td>
+                      <td className="px-6 py-4 font-sans font-medium text-charcoal">{t.norway}</td>
                       <td className="px-6 py-4 font-sans text-warm-gray">1 200 NOK</td>
                       <td className="px-6 py-4 font-sans text-warm-gray">650 NOK</td>
-                      <td className="px-6 py-4 font-sans text-warm-gray">3–5 business days</td>
+                      <td className="px-6 py-4 font-sans text-warm-gray">{t.norwayDelivery}</td>
                     </tr>
                     <tr>
-                      <td className="px-6 py-4 font-sans font-medium text-charcoal">Europe</td>
+                      <td className="px-6 py-4 font-sans font-medium text-charcoal">{t.europe}</td>
                       <td className="px-6 py-4 font-sans text-warm-gray">2 800 NOK</td>
                       <td className="px-6 py-4 font-sans text-warm-gray">1 400 NOK</td>
-                      <td className="px-6 py-4 font-sans text-warm-gray">5–10 business days</td>
+                      <td className="px-6 py-4 font-sans text-warm-gray">{t.europeDelivery}</td>
                     </tr>
                     <tr>
-                      <td className="px-6 py-4 font-sans font-medium text-charcoal">Rest of the World</td>
+                      <td className="px-6 py-4 font-sans font-medium text-charcoal">{t.restOfWorld}</td>
                       <td className="px-6 py-4 font-sans text-warm-gray">4 500 NOK</td>
                       <td className="px-6 py-4 font-sans text-warm-gray">2 200 NOK</td>
-                      <td className="px-6 py-4 font-sans text-warm-gray">10–20 business days</td>
+                      <td className="px-6 py-4 font-sans text-warm-gray">{t.worldDelivery}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -67,12 +70,12 @@ export default function ShippingPage({ params }: { params: { lang: 'en' | 'no' }
           {/* Insurance & Packaging */}
           <div>
             <h2 className="font-serif text-3xl font-light text-charcoal mb-8">
-              Insurance & Packaging
+              {t.insurancePackaging}
             </h2>
             
             <div className="bg-white p-8 border border-warm-gray/20">
               <p className="font-sans text-lg text-warm-gray leading-relaxed">
-                Every artwork is fully insured for its sale value and packed to gallery standards, foam-lined, reinforced, and moisture-protected.
+                {t.insuranceDescription}
               </p>
             </div>
           </div>
@@ -80,7 +83,7 @@ export default function ShippingPage({ params }: { params: { lang: 'en' | 'no' }
           {/* What's Included */}
           <div>
             <h2 className="font-serif text-3xl font-light text-charcoal mb-8">
-              What's Included
+              {t.whatsIncluded}
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -89,10 +92,10 @@ export default function ShippingPage({ params }: { params: { lang: 'en' | 'no' }
                   <Shield className="w-8 h-8 text-cream" />
                 </div>
                 <h3 className="font-serif text-lg font-medium text-charcoal mb-3">
-                  Certificate of Authenticity
+                  {t.certificateTitle}
                 </h3>
                 <p className="font-sans text-warm-gray">
-                  Each artwork comes with a signed certificate proving its authenticity and provenance.
+                  {t.certificateDesc}
                 </p>
               </div>
 
@@ -101,10 +104,10 @@ export default function ShippingPage({ params }: { params: { lang: 'en' | 'no' }
                   <Package className="w-8 h-8 text-cream" />
                 </div>
                 <h3 className="font-serif text-lg font-medium text-charcoal mb-3">
-                  Ready to Hang
+                  {t.readyToHangTitle}
                 </h3>
                 <p className="font-sans text-warm-gray">
-                  All paintings arrive with hanging hardware attached and ready for immediate display.
+                  {t.readyToHangDesc}
                 </p>
               </div>
 
@@ -113,10 +116,10 @@ export default function ShippingPage({ params }: { params: { lang: 'en' | 'no' }
                   <CheckCircle className="w-8 h-8 text-cream" />
                 </div>
                 <h3 className="font-serif text-lg font-medium text-charcoal mb-3">
-                  Professional Care
+                  {t.professionalCareTitle}
                 </h3>
                 <p className="font-sans text-warm-gray">
-                  Each piece is handled with the same care and attention as gallery exhibitions.
+                  {t.professionalCareDesc}
                 </p>
               </div>
             </div>
@@ -125,7 +128,7 @@ export default function ShippingPage({ params }: { params: { lang: 'en' | 'no' }
           {/* Returns */}
           <div>
             <h2 className="font-serif text-3xl font-light text-charcoal mb-8">
-              Returns
+              {t.returns}
             </h2>
             
             <div className="bg-warm-gray/5 p-8 border border-warm-gray/20">
@@ -133,7 +136,7 @@ export default function ShippingPage({ params }: { params: { lang: 'en' | 'no' }
                 <AlertCircle className="w-6 h-6 text-charcoal flex-shrink-0 mt-1" />
                 <div>
                   <p className="font-sans text-warm-gray leading-relaxed">
-                    If your artwork arrives damaged, please get in touch within 7 days with photos of the packaging and piece. I handle each case personally and make sure replacements or refunds are arranged smoothly.
+                    {t.returnsDescription}
                   </p>
                 </div>
               </div>
@@ -143,13 +146,13 @@ export default function ShippingPage({ params }: { params: { lang: 'en' | 'no' }
           {/* Contact CTA */}
           <div className="text-center py-12 border-t border-warm-gray/20">
             <h3 className="font-serif text-2xl font-light text-charcoal mb-4">
-              Questions About Shipping?
+              {t.questionsTitle}
             </h3>
             <p className="font-sans text-warm-gray mb-8 max-w-2xl mx-auto">
-              Contact me directly for any shipping questions, custom arrangements, or special delivery requirements.
+              {t.questionsText}
             </p>
-            <Link href="/contact" className="btn-primary inline-block">
-              Get in Touch
+            <Link href={`/${params.lang}/contact`} className="btn-primary inline-block">
+              {t.getInTouch}
             </Link>
           </div>
         </div>

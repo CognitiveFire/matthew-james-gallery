@@ -1,9 +1,11 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Mail, Phone, MapPin, Send } from 'lucide-react'
+import { getDictionary } from '@/lib/dictionaries'
 
 export default function ContactPage({ params }: { params: { lang: 'en' | 'no' } }) {
+  const [dict, setDict] = useState<any>(null)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -14,6 +16,14 @@ export default function ContactPage({ params }: { params: { lang: 'en' | 'no' } 
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+
+  useEffect(() => {
+    getDictionary(params.lang).then(setDict)
+  }, [params.lang])
+
+  if (!dict) return <div>Loading...</div>
+  
+  const t = dict.contact
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -233,7 +243,7 @@ export default function ContactPage({ params }: { params: { lang: 'en' | 'no' } 
                     value={formData.message}
                     onChange={handleChange}
                     className="input-field resize-none"
-                    placeholder="Tell us about your inquiry..."
+                    placeholder={t.messagePlaceholder}
                   />
                 </div>
 
@@ -245,12 +255,12 @@ export default function ContactPage({ params }: { params: { lang: 'en' | 'no' } 
                   {isSubmitting ? (
                     <>
                       <div className="w-5 h-5 border-2 border-cream border-t-transparent rounded-full animate-spin"></div>
-                      <span>Sending...</span>
+                      <span>{t.sending}</span>
                     </>
                   ) : (
                     <>
                       <Send className="w-5 h-5" />
-                      <span>Send Message</span>
+                      <span>{t.sendMessage}</span>
                     </>
                   )}
                 </button>

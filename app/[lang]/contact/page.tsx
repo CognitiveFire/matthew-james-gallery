@@ -17,21 +17,30 @@ export default function ContactPage({ params }: { params: { lang: 'en' | 'no' } 
   const [isSubmitted, setIsSubmitted] = useState(false)
 
   useEffect(() => {
-    // Load dictionary client-side
-    import(`@/dictionaries/${params.lang}.json`)
-      .then((module) => {
+    // Load dictionary client-side with explicit paths
+    const loadDictionary = async () => {
+      try {
+        let module
+        if (params.lang === 'no') {
+          module = await import('@/dictionaries/no.json')
+        } else {
+          module = await import('@/dictionaries/en.json')
+        }
         console.log('Dictionary loaded:', module.default)
         setDict(module.default)
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error('Failed to load dictionary:', error)
         // Fallback to English
-        import(`@/dictionaries/en.json`)
-          .then((module) => setDict(module.default))
-          .catch((fallbackError) => {
-            console.error('Failed to load fallback dictionary:', fallbackError)
-          })
-      })
+        try {
+          const fallbackModule = await import('@/dictionaries/en.json')
+          setDict(fallbackModule.default)
+        } catch (fallbackError) {
+          console.error('Failed to load fallback dictionary:', fallbackError)
+        }
+      }
+    }
+    
+    loadDictionary()
   }, [params.lang])
 
   if (!dict) return <div>Loading...</div>

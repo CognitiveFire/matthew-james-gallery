@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react'
 import { Mail, Phone, MapPin, Send } from 'lucide-react'
-import { getDictionary } from '@/lib/dictionaries'
 
 export default function ContactPage({ params }: { params: { lang: 'en' | 'no' } }) {
   const [dict, setDict] = useState<any>(null)
@@ -18,7 +17,10 @@ export default function ContactPage({ params }: { params: { lang: 'en' | 'no' } 
   const [isSubmitted, setIsSubmitted] = useState(false)
 
   useEffect(() => {
-    getDictionary(params.lang).then(setDict)
+    // Load dictionary client-side
+    import(`@/dictionaries/${params.lang}.json`).then((module) => {
+      setDict(module.default)
+    })
   }, [params.lang])
 
   if (!dict) return <div>Loading...</div>

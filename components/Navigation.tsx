@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname, useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { Menu, X, Globe } from 'lucide-react'
@@ -51,13 +52,16 @@ export default function Navigation({ lang }: NavigationProps) {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href={`/${lang}`} className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-charcoal rounded-sm flex items-center justify-center">
-              <span className="text-cream font-serif text-xs font-bold">MJ</span>
-            </div>
-            <span className="font-serif text-xl font-medium text-charcoal hidden sm:block">
-              {t.title}
-            </span>
+          <Link href={`/${lang}`} className="flex items-center">
+            <Image
+              src="https://i.ibb.co/TMRnRpwL/mj-light.png"
+              alt="Matthew James Gallery"
+              width={120}
+              height={32}
+              className="h-8 w-auto"
+              priority
+              unoptimized
+            />
           </Link>
 
           {/* Desktop Navigation */}

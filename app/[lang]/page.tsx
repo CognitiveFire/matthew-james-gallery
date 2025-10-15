@@ -1,5 +1,3 @@
-'use client'
-
 import Link from 'next/link'
 import Image from 'next/image'
 import { getAllArtworks } from '@/data/artwork'
@@ -9,8 +7,6 @@ import { Eye } from 'lucide-react'
 import LikeButton from '@/components/LikeButton'
 import SocialShare from '@/components/SocialShare'
 import StatusBadge from '@/components/StatusBadge'
-import { useState, useEffect } from 'react'
-import { Artwork } from '@/types/artwork'
 
 interface HomePageProps {
   params: { lang: 'en' | 'no' }
@@ -18,7 +14,7 @@ interface HomePageProps {
 
 export default function HomePage({ params }: HomePageProps) {
   const { lang } = params
-  const [artworks, setArtworks] = useState<Artwork[]>(getAllArtworks())
+  const artworks = getAllArtworks()
 
   const translations = {
     en: {
@@ -42,18 +38,6 @@ export default function HomePage({ params }: HomePageProps) {
   }
 
   const t = translations[lang]
-
-  useEffect(() => {
-    // Load artworks from localStorage if available
-    if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('gallery-artworks')
-      if (saved) {
-        setArtworks(JSON.parse(saved))
-      }
-      // Clear localStorage to force refresh with new data
-      localStorage.removeItem('gallery-artworks')
-    }
-  }, [])
 
   const organizationData = generateOrganizationStructuredData(lang)
 

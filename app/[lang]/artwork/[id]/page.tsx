@@ -1,17 +1,13 @@
-'use client'
-
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
-import { getArtworkById, getAllArtworks } from '@/data/artwork'
+import { getArtworkById } from '@/data/artwork'
 import { getLocalizedArtwork } from '@/lib/artwork-utils'
 import { generateArtworkStructuredData, generateBreadcrumbStructuredData } from '@/lib/structured-data'
 import { ArrowLeft, Calendar, Palette, Ruler } from 'lucide-react'
 import LikeButton from '@/components/LikeButton'
 import SocialShare from '@/components/SocialShare'
 import StatusBadge from '@/components/StatusBadge'
-import { useState, useEffect } from 'react'
-import { Artwork } from '@/types/artwork'
 
 interface ArtworkPageProps {
   params: {
@@ -22,42 +18,11 @@ interface ArtworkPageProps {
 
 export default function ArtworkPage({ params }: ArtworkPageProps) {
   const { id, lang } = params
-  const [artwork, setArtwork] = useState<Artwork | null>(null)
-  const [isLoading, setIsLoading] = useState(true)
-
-  useEffect(() => {
-    // Load artworks from localStorage if available, otherwise use default data
-    if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('gallery-artworks')
-      const artworks = saved ? JSON.parse(saved) : getAllArtworks()
-      const foundArtwork = artworks.find((a: Artwork) => a.id === params.id)
-      const artworkData = foundArtwork || getArtworkById(params.id)
-      
-      if (artworkData) {
-        setArtwork(artworkData)
-      } else {
-        notFound()
-      }
-      
-      // Clear localStorage to force refresh with new data
-      localStorage.removeItem('gallery-artworks')
-    } else {
-      const artworkData = getArtworkById(params.id)
-      if (artworkData) {
-        setArtwork(artworkData)
-      } else {
-        notFound()
-      }
-    }
-    setIsLoading(false)
-  }, [params.id])
-
-  if (isLoading) {
-    return <div>Loading...</div>
-  }
+  const artwork = getArtworkById(id)
 
   if (!artwork) {
-    return <div>Artwork not found</div>
+    notFound()
+    return null
   }
 
   const localizedArtwork = getLocalizedArtwork(artwork, lang)

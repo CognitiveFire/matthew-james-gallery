@@ -53,6 +53,15 @@ export function middleware(request: NextRequest) {
     return NextResponse.next()
   }
 
+  // Handle root path specifically
+  if (pathname === '/') {
+    const locale = getLocale(request)
+    const newUrl = new URL(`/${locale}`, request.url)
+    const response = NextResponse.redirect(newUrl)
+    response.cookies.set('NEXT_LOCALE', locale, { maxAge: 31536000 })
+    return response
+  }
+
   // Block admin page
   if (pathname.startsWith('/admin')) {
     return new NextResponse(null, { status: 404 })
@@ -79,8 +88,9 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    // Temporarily disable middleware to test if it's causing the favicon.ico issue
-    // '/((?!_next|api|images|favicon.ico|robots.txt|sitemap.xml|.*\\.(?:png|jpg|jpeg|gif|webp|svg|ico|css|js|json|xml|txt)).*)',
+    // Only match root path and page routes, exclude all static files
+    '/',
+    '/((?!_next|api|images|favicon.ico|robots.txt|sitemap.xml|.*\\.(?:png|jpg|jpeg|gif|webp|svg|ico|css|js|json|xml|txt)).*)',
   ],
 }
 

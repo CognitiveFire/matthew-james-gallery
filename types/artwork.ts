@@ -20,6 +20,7 @@ export interface Artwork {
   materials: string
   price: number
   imageUrl: string
+  secondImageUrl?: string
   dimensions: string
   year: number
   available: boolean

@@ -1,5 +1,4 @@
 import { notFound } from 'next/navigation'
-import Image from 'next/image'
 import Link from 'next/link'
 import { getArtworkById } from '@/data/artwork'
 import { getLocalizedArtwork } from '@/lib/artwork-utils'
@@ -8,6 +7,7 @@ import { ArrowLeft, Calendar, Palette, Ruler } from 'lucide-react'
 import LikeButton from '@/components/LikeButton'
 import SocialShare from '@/components/SocialShare'
 import StatusBadge from '@/components/StatusBadge'
+import ArtworkImage from '@/components/ArtworkImage'
 
 interface ArtworkPageProps {
   params: {
@@ -64,20 +64,10 @@ export default function ArtworkPage({ params }: ArtworkPageProps) {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             {/* Image */}
-            <div className="relative aspect-[4/5] bg-gray-100 overflow-hidden">
-              <Image
-                src={artwork.imageUrl}
-                alt={localizedArtwork.title}
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                priority
-                unoptimized
-              />
-              <div className="absolute top-6 right-6">
-                <StatusBadge available={artwork.available} size="md" />
-              </div>
-            </div>
+            <ArtworkImage 
+              artwork={artwork} 
+              title={localizedArtwork.title} 
+            />
 
             {/* Details */}
             <div className="space-y-8">

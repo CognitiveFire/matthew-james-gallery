@@ -80,7 +80,30 @@
     "sending": "Sending...",
     "thankYou": "Thank You",
     "messageSent": "Your message has been sent successfully. We'll get back to you within 24 hours.",
-    "sendAnother": "Send Another Message"
+    "artworkOptions": {
+      "selectArtwork": "Select an artwork (optional)",
+      "1": "The Listener",
+      "2": "Winter Fox", 
+      "3": "City Noise",
+      "4": "Still Waters Run Deep",
+      "5": "The Bird Who Knew Too Little",
+      "6": "Social Listening",
+      "7": "Sea Monster's Day Off",
+      "8": "London - A New Perspective",
+      "9": "It Seemed Like a Nice Neighborhood to Have Bad Habits In",
+      "10": "The Dog Walker",
+      "11": "It's Raining Again",
+      "12": "The Garden at Noon",
+      "13": "The Matador",
+      "14": "The Blue Chair",
+      "15": "The Mower",
+      "16": "Innsvømming",
+      "17": "Mars Harvest",
+      "18": "I Love Thai Food",
+      "19": "Bergen??",
+      "20": "Fragment of Myself",
+      "21": "The Keyhole"
+    }
   },
   "shipping": {
     "title": "Shipping & Returns",

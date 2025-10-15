@@ -80,7 +80,30 @@
     "sending": "Sender...",
     "thankYou": "Takk",
     "messageSent": "Din melding har blitt sendt. Vi kommer tilbake til deg innen 24 timer.",
-    "sendAnother": "Send Ny Melding"
+    "artworkOptions": {
+      "selectArtwork": "Velg et kunstverk (valgfritt)",
+      "1": "Lytteren",
+      "2": "Vinterrev",
+      "3": "Byens Støy",
+      "4": "Stille Vann Renner Dyp",
+      "5": "Fuglen Som Visste For Lite",
+      "6": "Sosial Lytting",
+      "7": "Havmonsterets Fridag",
+      "8": "London - Et Nytt Perspektiv",
+      "9": "Det Virket Som Et Hyggelig Nabolag å Ha Dårlige Vaner I",
+      "10": "Hundelufteren",
+      "11": "Det Regner Igjen",
+      "12": "Hagen ved Middagstid",
+      "13": "Matadoren",
+      "14": "Den Blå Stolen",
+      "15": "Klipperen",
+      "16": "Innsvømming",
+      "17": "Mars Høst",
+      "18": "Jeg Elsker Thai Mat",
+      "19": "Bergen??",
+      "20": "Fragment av Meg Selv",
+      "21": "Nøkkelhullet"
+    }
   },
   "shipping": {
     "title": "Frakt & Retur",

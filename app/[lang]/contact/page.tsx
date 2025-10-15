@@ -213,23 +213,28 @@ export default function ContactPage({ params }: { params: { lang: 'en' | 'no' } 
                     onChange={handleChange}
                     className="input-field"
                   >
-                    <option value="">Select an artwork (optional)</option>
-                    <option value="1">The Listener</option>
-                    <option value="2">Winter Fox</option>
-                    <option value="3">City Noise</option>
-                    <option value="4">Still Waters Run Deep</option>
-                    <option value="5">The Bird Who Knew Too Little</option>
-                    <option value="6">Social Listening</option>
-                    <option value="7">Sea Monster's Day Off</option>
-                    <option value="8">London - A New Perspective</option>
-                    <option value="9">It Seemed Like a Nice Neighborhood to Have Bad Habits In</option>
-                    <option value="10">The Dog Walker</option>
-                    <option value="11">It's Raining Again</option>
-                    <option value="12">The Garden at Noon</option>
-                    <option value="13">The Matador</option>
-                    <option value="14">The Blue Chair</option>
-                    <option value="15">The Mower</option>
-                    <option value="16">Innsvømming</option>
+                    <option value="">{t.artworkOptions.selectArtwork}</option>
+                    <option value="1">{t.artworkOptions["1"]}</option>
+                    <option value="2">{t.artworkOptions["2"]}</option>
+                    <option value="3">{t.artworkOptions["3"]}</option>
+                    <option value="4">{t.artworkOptions["4"]}</option>
+                    <option value="5">{t.artworkOptions["5"]}</option>
+                    <option value="6">{t.artworkOptions["6"]}</option>
+                    <option value="7">{t.artworkOptions["7"]}</option>
+                    <option value="8">{t.artworkOptions["8"]}</option>
+                    <option value="9">{t.artworkOptions["9"]}</option>
+                    <option value="10">{t.artworkOptions["10"]}</option>
+                    <option value="11">{t.artworkOptions["11"]}</option>
+                    <option value="12">{t.artworkOptions["12"]}</option>
+                    <option value="13">{t.artworkOptions["13"]}</option>
+                    <option value="14">{t.artworkOptions["14"]}</option>
+                    <option value="15">{t.artworkOptions["15"]}</option>
+                    <option value="16">{t.artworkOptions["16"]}</option>
+                    <option value="17">{t.artworkOptions["17"]}</option>
+                    <option value="18">{t.artworkOptions["18"]}</option>
+                    <option value="19">{t.artworkOptions["19"]}</option>
+                    <option value="20">{t.artworkOptions["20"]}</option>
+                    <option value="21">{t.artworkOptions["21"]}</option>
                   </select>
                 </div>
 

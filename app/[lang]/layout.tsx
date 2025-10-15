@@ -40,10 +40,16 @@ export async function generateMetadata({ params }: { params: { lang: 'en' | 'no'
       siteName: title,
       images: [
         {
-          url: 'https://i.ibb.co/2Yd8zqy1/profile.png',
+          url: 'https://i.ibb.co/Lh0nWty9/1.png',
           width: 1200,
-          height: 630,
-          alt: params.lang === 'no' ? 'Matthew James Galleri - Bergen, Norge' : 'Matthew James Gallery - Bergen, Norway'
+          height: 1500,
+          alt: params.lang === 'no' ? 'Lytteren - Matthew James Galleri' : 'The Listener - Matthew James Gallery'
+        },
+        {
+          url: 'https://i.ibb.co/bjFgQBqm/3-B7-DF6-AC-8897-4605-A0-C5-AAA78-D5031-A5-1-201-a.jpg',
+          width: 1200,
+          height: 857,
+          alt: params.lang === 'no' ? 'Vinterreven - Matthew James Galleri' : 'Winter Fox - Matthew James Gallery'
         }
       ]
     },
@@ -51,8 +57,9 @@ export async function generateMetadata({ params }: { params: { lang: 'en' | 'no'
       card: 'summary_large_image',
       title,
       description,
-      images: ['https://i.ibb.co/2Yd8zqy1/profile.png'],
+      images: ['https://i.ibb.co/Lh0nWty9/1.png'],
       creator: '@matthewjamesart',
+      site: '@matthewjamesart',
     },
     robots: {
       index: true,

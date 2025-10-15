@@ -70,6 +70,45 @@ export default async function HomePage({ params }: HomePageProps) {
               {t.getInTouch}
             </Link>
           </div>
+
+          {/* Social Sharing */}
+          <div className="text-center mt-12 pt-8 border-t border-warm-gray/10">
+            <h4 className="font-serif text-lg font-light text-charcoal mb-4">
+              {lang === 'no' ? 'Del galleriet' : 'Share the Gallery'}
+            </h4>
+            <p className="font-sans text-sm text-warm-gray mb-6 max-w-xl mx-auto">
+              {lang === 'no' 
+                ? 'Hjelp oss å spre ordet om Matthew James Galleri på sosiale medier'
+                : 'Help us spread the word about Matthew James Gallery on social media'
+              }
+            </p>
+            <div className="flex justify-center space-x-4">
+              <a
+                href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`https://matthewjamesgallery.com/${lang}`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300"
+              >
+                <span className="font-sans text-sm">Facebook</span>
+              </a>
+              <a
+                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(lang === 'no' ? 'Sjekk ut Matthew James Galleri - Moderne kunst fra Bergen! 🎨' : 'Check out Matthew James Gallery - Modern art from Bergen! 🎨')}&url=${encodeURIComponent(`https://matthewjamesgallery.com/${lang}`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-2 px-4 py-2 bg-blue-400 text-white rounded-lg hover:bg-blue-500 transition-colors duration-300"
+              >
+                <span className="font-sans text-sm">Twitter</span>
+              </a>
+              <a
+                href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://matthewjamesgallery.com/${lang}`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-2 px-4 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition-colors duration-300"
+              >
+                <span className="font-sans text-sm">LinkedIn</span>
+              </a>
+            </div>
+          </div>
         </div>
       </section>
     </div>

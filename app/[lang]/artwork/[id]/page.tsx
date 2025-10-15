@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import type { Metadata } from 'next'
 import { getArtworkById } from '@/data/artwork'
 import { getLocalizedArtwork } from '@/lib/artwork-utils'
 import { generateArtworkStructuredData, generateBreadcrumbStructuredData } from '@/lib/structured-data'
@@ -13,6 +14,94 @@ interface ArtworkPageProps {
   params: {
     id: string
     lang: 'en' | 'no'
+  }
+}
+
+export async function generateMetadata({ params }: ArtworkPageProps): Promise<Metadata> {
+  const { id, lang } = params
+  const artwork = getArtworkById(id)
+
+  if (!artwork) {
+    return {
+      title: 'Artwork Not Found',
+      description: 'The requested artwork could not be found.'
+    }
+  }
+
+  const localizedArtwork = getLocalizedArtwork(artwork, lang)
+  const galleryName = lang === 'no' ? 'Matthew James Galleri' : 'Matthew James Gallery'
+  
+  const title = `${localizedArtwork.title} | ${galleryName}`
+  const description = localizedArtwork.shortDescription
+  const url = `https://matthewjamesgallery.com/${lang}/artwork/${id}`
+
+  return {
+    title,
+    description,
+    keywords: [
+      localizedArtwork.title,
+      'Matthew James',
+      'art gallery',
+      'Bergen Norway',
+      'contemporary art',
+      'acrylic painting',
+      artwork.materials,
+      artwork.year.toString(),
+      lang === 'no' ? 'norsk kunst' : 'Norwegian art'
+    ],
+    authors: [{ name: 'Matthew James', url: 'https://matthewjamesgallery.com' }],
+    creator: 'Matthew James',
+    publisher: galleryName,
+    openGraph: {
+      type: 'website',
+      locale: lang === 'no' ? 'nb_NO' : 'en_US',
+      alternateLocale: lang === 'no' ? 'en_US' : 'nb_NO',
+      url,
+      title,
+      description,
+      siteName: galleryName,
+      images: [
+        {
+          url: artwork.imageUrl,
+          width: 1200,
+          height: 1500,
+          alt: `${localizedArtwork.title} - ${galleryName}`
+        },
+        ...(artwork.secondImageUrl ? [{
+          url: artwork.secondImageUrl,
+          width: 1200,
+          height: 1500,
+          alt: `${localizedArtwork.title} - Alternative View - ${galleryName}`
+        }] : [])
+      ]
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [artwork.imageUrl],
+      creator: '@matthewjamesart',
+      site: '@matthewjamesart',
+    },
+    alternates: {
+      canonical: url,
+      languages: {
+        'en': `https://matthewjamesgallery.com/en/artwork/${id}`,
+        'nb-NO': `https://matthewjamesgallery.com/no/artwork/${id}`,
+      }
+    },
+    robots: {
+      index: true,
+      follow: true,
+      nocache: false,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
   }
 }
 

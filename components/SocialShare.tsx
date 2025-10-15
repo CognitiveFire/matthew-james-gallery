@@ -1,6 +1,6 @@
 'use client'
 
-import { Share2, Facebook, Twitter, Instagram, Mail, Copy } from 'lucide-react'
+import { Share2, Facebook, Twitter, Instagram, Mail, Copy, Linkedin, MessageCircle } from 'lucide-react'
 import { useState, useEffect } from 'react'
 
 interface SocialShareProps {
@@ -14,21 +14,30 @@ export default function SocialShare({ artworkId, title, imageUrl, className = ''
   const [isOpen, setIsOpen] = useState(false)
   const [copied, setCopied] = useState(false)
   const [isClient, setIsClient] = useState(false)
+  const [canNativeShare, setCanNativeShare] = useState(false)
 
   useEffect(() => {
     setIsClient(true)
+    setCanNativeShare(!!navigator.share)
   }, [])
 
   const baseUrl = typeof window !== 'undefined' ? window.location.origin : ''
-  const artworkUrl = `${baseUrl}/artwork/${artworkId}`
-  const shareText = `Check out "${title}" - Beautiful artwork from Matthew James Gallery!`
+  const currentLang = typeof window !== 'undefined' ? window.location.pathname.split('/')[1] : 'en'
+  const artworkUrl = `${baseUrl}/${currentLang}/artwork/${artworkId}`
+  
+  const shareText = currentLang === 'no' 
+    ? `Sjekk ut "${title}" - Vakkert kunstverk fra Matthew James Galleri! 🎨`
+    : `Check out "${title}" - Beautiful artwork from Matthew James Gallery! 🎨`
+  
   const shareUrl = encodeURIComponent(artworkUrl)
   const shareTitle = encodeURIComponent(shareText)
-  const shareImage = encodeURIComponent(`${baseUrl}${imageUrl}`)
+  const shareImage = encodeURIComponent(imageUrl)
 
   const shareLinks = {
     facebook: `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`,
     twitter: `https://twitter.com/intent/tweet?text=${shareTitle}&url=${shareUrl}`,
+    linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`,
+    whatsapp: `https://wa.me/?text=${shareTitle}%20${shareUrl}`,
     instagram: `https://www.instagram.com/`, // Instagram doesn't support direct URL sharing
     pinterest: `https://pinterest.com/pin/create/button/?url=${shareUrl}&media=${shareImage}&description=${shareTitle}`,
   }
@@ -40,6 +49,21 @@ export default function SocialShare({ artworkId, title, imageUrl, className = ''
       setTimeout(() => setCopied(false), 2000)
     } catch (err) {
       console.error('Failed to copy link:', err)
+    }
+  }
+
+  const handleNativeShare = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: shareText,
+          text: shareText,
+          url: artworkUrl,
+        })
+        setIsOpen(false)
+      } catch (err) {
+        console.error('Error sharing:', err)
+      }
     }
   }
 
@@ -90,6 +114,18 @@ export default function SocialShare({ artworkId, title, imageUrl, className = ''
 
       {isOpen && (
         <div className="absolute right-0 top-full mt-2 bg-white border border-warm-gray/20 rounded-lg shadow-lg py-2 z-50 min-w-[200px]">
+          {canNativeShare && (
+            <button
+              onClick={handleNativeShare}
+              className="w-full flex items-center space-x-3 px-4 py-2 text-left hover:bg-gray-50 transition-colors duration-200"
+            >
+              <Share2 className="w-4 h-4 text-charcoal" />
+              <span className="font-sans text-sm text-charcoal">Share</span>
+            </button>
+          )}
+          
+          {canNativeShare && <div className="border-t border-warm-gray/20 my-2"></div>}
+          
           <button
             onClick={() => handleShare('facebook')}
             className="w-full flex items-center space-x-3 px-4 py-2 text-left hover:bg-gray-50 transition-colors duration-200"
@@ -104,6 +140,22 @@ export default function SocialShare({ artworkId, title, imageUrl, className = ''
           >
             <Twitter className="w-4 h-4 text-blue-400" />
             <span className="font-sans text-sm text-charcoal">Twitter</span>
+          </button>
+
+          <button
+            onClick={() => handleShare('linkedin')}
+            className="w-full flex items-center space-x-3 px-4 py-2 text-left hover:bg-gray-50 transition-colors duration-200"
+          >
+            <Linkedin className="w-4 h-4 text-blue-700" />
+            <span className="font-sans text-sm text-charcoal">LinkedIn</span>
+          </button>
+
+          <button
+            onClick={() => handleShare('whatsapp')}
+            className="w-full flex items-center space-x-3 px-4 py-2 text-left hover:bg-gray-50 transition-colors duration-200"
+          >
+            <MessageCircle className="w-4 h-4 text-green-600" />
+            <span className="font-sans text-sm text-charcoal">WhatsApp</span>
           </button>
 
           <button

@@ -72,6 +72,7 @@ export default function ArtworkPage({ params }: ArtworkPageProps) {
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 priority
+                unoptimized
               />
               <div className="absolute top-6 right-6">
                 <StatusBadge available={artwork.available} size="md" />

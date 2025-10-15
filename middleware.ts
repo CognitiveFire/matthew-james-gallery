@@ -79,8 +79,8 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    // Only match actual page routes, exclude all static files and system files
-    '/((?!_next|api|images|favicon.ico|robots.txt|sitemap.xml|.*\\.(?:png|jpg|jpeg|gif|webp|svg|ico|css|js|json|xml|txt)).*)',
+    // Temporarily disable middleware to test if it's causing the favicon.ico issue
+    // '/((?!_next|api|images|favicon.ico|robots.txt|sitemap.xml|.*\\.(?:png|jpg|jpeg|gif|webp|svg|ico|css|js|json|xml|txt)).*)',
   ],
 }
 

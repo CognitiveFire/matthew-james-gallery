@@ -4,6 +4,12 @@ import { getDictionary } from '@/lib/dictionaries'
 
 export default async function ShippingPage({ params }: { params: { lang: 'en' | 'no' } }) {
   const dict = await getDictionary(params.lang)
+  
+  if (!dict || !dict.shipping) {
+    console.error('Dictionary or shipping section is undefined:', { dict, lang: params.lang })
+    return <div>Loading...</div>
+  }
+  
   const t = dict.shipping
   return (
     <div className="pt-20">

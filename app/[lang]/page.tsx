@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { getAllArtworks } from '@/data/artwork'
 import { getLocalizedArtwork } from '@/lib/artwork-utils'
 import { generateOrganizationStructuredData } from '@/lib/structured-data'
+import { getDictionary } from '@/lib/dictionaries'
 import { Eye } from 'lucide-react'
 import LikeButton from '@/components/LikeButton'
 import SocialShare from '@/components/SocialShare'
@@ -12,32 +13,17 @@ interface HomePageProps {
   params: { lang: 'en' | 'no' }
 }
 
-export default function HomePage({ params }: HomePageProps) {
+export default async function HomePage({ params }: HomePageProps) {
   const { lang } = params
   const artworks = getAllArtworks()
-
-  const translations = {
-    en: {
-      title: 'Matthew James Gallery',
-      subtitle: 'Modern paintings with a sense of the absurd. Bold colours mix with eccentric worlds with little concern for the rules. A Snapshot of people and places caught somewhere between truth and nightmare.',
-      viewDetails: 'View Details',
-      interestedTitle: 'Interested in a piece?',
-      interestedText: 'Contact us to inquire about availability, pricing, or to arrange a viewing.',
-      getInTouch: 'Get in Touch',
-      nok: 'NOK'
-    },
-    no: {
-      title: 'Matthew James Galleri',
-      subtitle: 'Moderne malerier med en sans for det absurde. Dristige farger møter eksentriske verdener med liten respekt for reglene. Et øyeblikksbilde av mennesker og steder fanget et sted mellom sannhet og mareritt.',
-      viewDetails: 'Se Detaljer',
-      interestedTitle: 'Interessert i et verk?',
-      interestedText: 'Kontakt oss for å spørre om tilgjengelighet, pris eller for å avtale visning.',
-      getInTouch: 'Ta Kontakt',
-      nok: 'NOK'
-    }
+  const dict = await getDictionary(lang)
+  
+  if (!dict || !dict.home) {
+    console.error('Dictionary or home section is undefined:', { dict, lang })
+    return <div>Loading...</div>
   }
-
-  const t = translations[lang]
+  
+  const t = dict.home
 
   const organizationData = generateOrganizationStructuredData(lang)
 

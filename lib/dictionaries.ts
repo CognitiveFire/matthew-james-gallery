@@ -6,7 +6,19 @@ const dictionaries = {
 }
 
 export const getDictionary = async (locale: 'en' | 'no') => {
-  return dictionaries[locale]()
+  try {
+    const dict = await dictionaries[locale]()
+    if (!dict) {
+      console.error(`Dictionary for locale ${locale} is undefined`)
+      // Fallback to English if the requested locale fails
+      return locale === 'no' ? await dictionaries.en() : await dictionaries.en()
+    }
+    return dict
+  } catch (error) {
+    console.error(`Failed to load dictionary for locale ${locale}:`, error)
+    // Always fallback to English
+    return await dictionaries.en()
+  }
 }
 
 export type Dictionary = Awaited<ReturnType<typeof getDictionary>>

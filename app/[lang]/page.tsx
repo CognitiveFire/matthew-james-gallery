@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { getAllArtworks } from '@/data/artwork'
 import { generateOrganizationStructuredData } from '@/lib/structured-data'
 import { getDictionary } from '@/lib/dictionaries'
-import ArtworkCard from '@/components/ArtworkCard'
+import FilteredGallery from '@/components/FilteredGallery'
 
 interface HomePageProps {
   params: { lang: 'en' | 'no' }
@@ -46,17 +46,7 @@ export default async function HomePage({ params }: HomePageProps) {
       {/* Gallery Section */}
       <section className="pt-8 pb-16 px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-
-          {/* Artwork Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
-            {artworks.sort((a, b) => parseInt(b.id) - parseInt(a.id)).map((artwork) => (
-              <ArtworkCard 
-                key={artwork.id} 
-                artwork={artwork} 
-                lang={lang} 
-              />
-            ))}
-          </div>
+          <FilteredGallery artworks={artworks} lang={lang} />
 
           {/* Call to Action */}
           <div className="text-center mt-16 pt-16 border-t border-warm-gray/20">

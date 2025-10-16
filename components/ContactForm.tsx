@@ -1,7 +1,8 @@
 'use client'
 
-import { useState } from 'react'
-import { Send } from 'lucide-react'
+import { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
+import { Send, CheckCircle } from 'lucide-react'
 
 interface ContactFormProps {
   translations: any
@@ -9,6 +10,7 @@ interface ContactFormProps {
 }
 
 export default function ContactForm({ translations, lang }: ContactFormProps) {
+  const router = useRouter()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -19,6 +21,17 @@ export default function ContactForm({ translations, lang }: ContactFormProps) {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+
+  // Auto-redirect to home page after 3 seconds
+  useEffect(() => {
+    if (isSubmitted) {
+      const timer = setTimeout(() => {
+        router.push(`/${lang}`)
+      }, 3000)
+      
+      return () => clearTimeout(timer)
+    }
+  }, [isSubmitted, router, lang])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -68,26 +81,35 @@ export default function ContactForm({ translations, lang }: ContactFormProps) {
 
   if (isSubmitted) {
     return (
-      <div className="pt-20">
-        <section className="py-24 px-6 lg:px-8">
-          <div className="max-w-2xl mx-auto text-center">
-            <div className="w-16 h-16 bg-charcoal rounded-full flex items-center justify-center mx-auto mb-6">
-              <Send className="w-8 h-8 text-cream" />
-            </div>
-            <h1 className="font-serif text-4xl font-light text-charcoal mb-4">
-              {translations.thankYou}
-            </h1>
-            <p className="font-sans text-lg text-warm-gray mb-8">
-              {translations.messageSent}
-            </p>
-            <button 
-              onClick={() => setIsSubmitted(false)}
-              className="btn-secondary"
-            >
-              {translations.sendAnother}
-            </button>
+      <div className="space-y-6">
+        {/* Success Message */}
+        <div className="bg-green-50 border border-green-200 rounded-lg p-6 text-center">
+          <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <CheckCircle className="w-8 h-8 text-white" />
           </div>
-        </section>
+          <h2 className="font-serif text-2xl font-medium text-green-800 mb-2">
+            {translations.thankYou}
+          </h2>
+          <p className="font-sans text-green-700 mb-4">
+            {translations.messageSent}
+          </p>
+          <p className="font-sans text-sm text-green-600">
+            {lang === 'no' 
+              ? 'Du blir automatisk sendt til hjemmesiden om 3 sekunder...' 
+              : 'You will be automatically redirected to the homepage in 3 seconds...'
+            }
+          </p>
+        </div>
+        
+        {/* Manual redirect button */}
+        <div className="text-center">
+          <button 
+            onClick={() => router.push(`/${lang}`)}
+            className="btn-primary"
+          >
+            {lang === 'no' ? 'Gå til hjemmesiden nå' : 'Go to homepage now'}
+          </button>
+        </div>
       </div>
     )
   }

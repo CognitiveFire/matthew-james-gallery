@@ -76,6 +76,11 @@ export function middleware(request: NextRequest) {
     return NextResponse.next()
   }
 
+  // Only process if it's a valid page route (no extensions)
+  if (pathname.includes('.')) {
+    return NextResponse.next()
+  }
+
   // Redirect to locale-prefixed URL
   const locale = getLocale(request)
   const newUrl = new URL(`/${locale}${pathname}`, request.url)

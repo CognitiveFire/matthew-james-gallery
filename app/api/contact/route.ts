@@ -2,10 +2,31 @@ import { NextRequest, NextResponse } from 'next/server'
 import sgMail from '@sendgrid/mail'
 
 // Initialize SendGrid
-sgMail.setApiKey(process.env.SENDGRID_API_KEY!)
+if (!process.env.SENDGRID_API_KEY) {
+  console.error('SENDGRID_API_KEY environment variable is not set')
+} else {
+  sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+}
 
 export async function POST(request: NextRequest) {
   try {
+    // Check if SendGrid is properly configured
+    if (!process.env.SENDGRID_API_KEY) {
+      console.error('SENDGRID_API_KEY is not configured')
+      return NextResponse.json(
+        { error: 'Email service not configured' },
+        { status: 500 }
+      )
+    }
+
+    if (!process.env.SENDGRID_API_KEY.startsWith('SG.')) {
+      console.error('SENDGRID_API_KEY does not start with SG.')
+      return NextResponse.json(
+        { error: 'Invalid SendGrid API key format' },
+        { status: 500 }
+      )
+    }
+
     const body = await request.json()
     const { name, email, phone, subject, artworkId, message, lang } = body
 
@@ -98,7 +119,13 @@ ${lang === 'no' ? 'Svar direkte til kunden på:' : 'Reply directly to the custom
       html: htmlContent,
     }
 
-    await sgMail.send(msg)
+    try {
+      await sgMail.send(msg)
+      console.log('Inquiry email sent successfully')
+    } catch (sendError) {
+      console.error('Error sending inquiry email:', sendError)
+      throw sendError
+    }
 
     // Send confirmation email to customer
     const confirmationSubject = lang === 'no' 
@@ -151,7 +178,13 @@ ${lang === 'no' ? 'Svar direkte til kunden på:' : 'Reply directly to the custom
       html: confirmationHtml,
     }
 
-    await sgMail.send(confirmationMsg)
+    try {
+      await sgMail.send(confirmationMsg)
+      console.log('Confirmation email sent successfully')
+    } catch (sendError) {
+      console.error('Error sending confirmation email:', sendError)
+      // Don't throw here - the main email was sent successfully
+    }
 
     return NextResponse.json({ success: true })
 

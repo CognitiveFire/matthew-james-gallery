@@ -568,6 +568,33 @@ export const sampleArtworks: Artwork[] = [
     featured: false,
     likes: 0,
   },
+  {
+    id: '22',
+    title: 'Øynene Lukket for Støyen',
+    description: 'I dette verket utforsker kunstneren den stille spenningen mellom indre liv og eksterne forventninger. De lukkede øynene er ikke en flukt, men en form for motstand - et øyeblikk av stillhet som nekter å bli distrahert. Den forenklede paletten og de flate fargeplanene gir portrettet en tidløs intimitet, der stillheten i seg selv blir en uttalelse.',
+    shortDescription: 'Et portrett om å finne styrke i stillhet.',
+    translations: {
+      en: {
+        title: 'Eyes Closed to the Noise',
+        description: 'In this work, the artist explores the quiet tension between inner life and external expectation. The closed eyes are not an escape but a form of resistance — a moment of stillness that refuses distraction. The simplified palette and flattened planes of colour lend the portrait a timeless intimacy, where silence itself becomes a statement.',
+        shortDescription: 'A portrait about finding strength in stillness.',
+      },
+      no: {
+        title: 'Øynene Lukket for Støyen',
+        description: 'I dette verket utforsker kunstneren den stille spenningen mellom indre liv og eksterne forventninger. De lukkede øynene er ikke en flukt, men en form for motstand - et øyeblikk av stillhet som nekter å bli distrahert. Den forenklede paletten og de flate fargeplanene gir portrettet en tidløs intimitet, der stillheten i seg selv blir en uttalelse.',
+        shortDescription: 'Et portrett om å finne styrke i stillhet.',
+      }
+    },
+    materials: 'Acrylic on canvas',
+    price: 10000,
+    imageUrl: 'https://i.ibb.co/sd06X5c3/E022-E8-EE-5358-4404-8-BB8-5-ABC75-FC0418.jpg',
+    secondImageUrl: 'https://i.ibb.co/My13hGD1/293-AEA7-C-4-C00-406-E-B956-39-C698-D57-D66.jpg',
+    dimensions: '50 x 40cm',
+    year: 2025,
+    available: true,
+    featured: true,
+    likes: 0,
+  },
 ]
 
 export const getArtworkById = (id: string): Artwork | undefined => {

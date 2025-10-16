@@ -221,6 +221,7 @@ export default function ContactForm({ translations, lang }: ContactFormProps) {
           <option value="19">{translations.artworkOptions["19"]}</option>
           <option value="20">{translations.artworkOptions["20"]}</option>
           <option value="21">{translations.artworkOptions["21"]}</option>
+          <option value="22">{translations.artworkOptions["22"]}</option>
         </select>
       </div>
 

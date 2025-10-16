@@ -622,6 +622,33 @@ export const sampleArtworks: Artwork[] = [
     featured: true,
     likes: 0,
   },
+  {
+    id: '24',
+    title: 'Selma',
+    description: 'Selma is a portrait of modern life— youthful, messy, and entirely alive. Red Bull in one hand, Aperol spritz in the other. A fried egg sizzling above like a halo of indulgence. Between the laughter and the noise, a cat named Baloo stares out with quiet disapproval. The lobster\'s presence remains unexplained. This work captures a generation\'s contradictions — energy and exhaustion, self-awareness and absurdity — served sunny-side up.',
+    shortDescription: 'Chaos and caffeine',
+    translations: {
+      en: {
+        title: 'Selma',
+        description: 'Selma is a portrait of modern life— youthful, messy, and entirely alive. Red Bull in one hand, Aperol spritz in the other. A fried egg sizzling above like a halo of indulgence. Between the laughter and the noise, a cat named Baloo stares out with quiet disapproval. The lobster\'s presence remains unexplained. This work captures a generation\'s contradictions — energy and exhaustion, self-awareness and absurdity — served sunny-side up.',
+        shortDescription: 'Chaos and caffeine',
+      },
+      no: {
+        title: 'Selma',
+        description: 'Selma er et portrett av det moderne livet - ungdommelig, rotete og helt levende. Red Bull i den ene hånden, Aperol spritz i den andre. Et stekt egg som freser over som en glorie av vellevnet. Mellom latteren og støyen stirrer en katt ved navn Baloo ut med stille misbilligelse. Hummerens tilstedeværelse forblir uforklarlig. Dette verket fanger en generasjons motsetninger - energi og utmattelse, selvbevissthet og absurditet - servert med solside opp.',
+        shortDescription: 'Kaos og koffein',
+      }
+    },
+    materials: 'Acrylic on canvas',
+    price: 10000,
+    imageUrl: 'https://i.ibb.co/v9Bs8NN/36-D35811-8332-4-C7-B-848-C-3-D5-F021-B7-D1-D.jpg',
+    secondImageUrl: 'https://i.ibb.co/Ld89HHb1/selma.jpg',
+    dimensions: '50 x 40cm',
+    year: 2025,
+    available: false,
+    featured: true,
+    likes: 0,
+  },
 ]
 
 export const getArtworkById = (id: string): Artwork | undefined => {

@@ -1,28 +1,24 @@
 import { NextRequest, NextResponse } from 'next/server'
-import sgMail from '@sendgrid/mail'
+import nodemailer from 'nodemailer'
 
-// Initialize SendGrid
-if (!process.env.SENDGRID_API_KEY) {
-  console.error('SENDGRID_API_KEY environment variable is not set')
-} else {
-  sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+// Create Gmail transporter
+const createTransporter = () => {
+  return nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: process.env.GMAIL_USER,
+      pass: process.env.GMAIL_APP_PASSWORD, // Use App Password, not regular password
+    },
+  })
 }
 
 export async function POST(request: NextRequest) {
   try {
-    // Check if SendGrid is properly configured
-    if (!process.env.SENDGRID_API_KEY) {
-      console.error('SENDGRID_API_KEY is not configured')
+    // Check if Gmail is properly configured
+    if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
+      console.error('Gmail credentials not configured')
       return NextResponse.json(
         { error: 'Email service not configured' },
-        { status: 500 }
-      )
-    }
-
-    if (!process.env.SENDGRID_API_KEY.startsWith('SG.')) {
-      console.error('SENDGRID_API_KEY does not start with SG.')
-      return NextResponse.json(
-        { error: 'Invalid SendGrid API key format' },
         { status: 500 }
       )
     }
@@ -110,9 +106,11 @@ ${lang === 'no' ? 'Svar direkte til kunden på:' : 'Reply directly to the custom
     `
 
     // Send email to gallery owner
-    const msg = {
-      to: process.env.GALLERY_EMAIL || 'matthew@matthewjamesgallery.com',
-      from: process.env.FROM_EMAIL || 'noreply@matthewjamesgallery.com',
+    const transporter = createTransporter()
+    
+    const mailOptions = {
+      from: process.env.GMAIL_USER,
+      to: process.env.GALLERY_EMAIL || process.env.GMAIL_USER,
       replyTo: email,
       subject: `${subjectText} - ${subject}`,
       text: textContent,
@@ -120,7 +118,7 @@ ${lang === 'no' ? 'Svar direkte til kunden på:' : 'Reply directly to the custom
     }
 
     try {
-      await sgMail.send(msg)
+      await transporter.sendMail(mailOptions)
       console.log('Inquiry email sent successfully')
     } catch (sendError) {
       console.error('Error sending inquiry email:', sendError)
@@ -171,15 +169,15 @@ ${lang === 'no' ? 'Svar direkte til kunden på:' : 'Reply directly to the custom
       </div>
     `
 
-    const confirmationMsg = {
+    const confirmationMailOptions = {
+      from: process.env.GMAIL_USER,
       to: email,
-      from: process.env.FROM_EMAIL || 'noreply@matthewjamesgallery.com',
       subject: confirmationSubject,
       html: confirmationHtml,
     }
 
     try {
-      await sgMail.send(confirmationMsg)
+      await transporter.sendMail(confirmationMailOptions)
       console.log('Confirmation email sent successfully')
     } catch (sendError) {
       console.error('Error sending confirmation email:', sendError)

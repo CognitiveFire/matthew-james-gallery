@@ -54,7 +54,7 @@ export default function Navigation({ lang }: NavigationProps) {
           {/* Logo */}
           <Link href={`/${lang}`} className="flex items-center">
             <Image
-              src="https://i.ibb.co/TMRnRpwL/mj-light.png"
+              src="https://i.ibb.co/rKR5g2Yf/newlogo.jpg"
               alt="Matthew James Gallery"
               width={240}
               height={65}

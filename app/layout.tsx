@@ -22,6 +22,24 @@ export default function RootLayout({
     <html className={`${inter.variable} ${playfair.variable}`} suppressHydrationWarning>
       <head>
         <link rel="canonical" href="https://matthewjamesgallery.com" />
+        {/* Google Analytics */}
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=G-C6H3JFPVHJ`}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-C6H3JFPVHJ', {
+                page_title: document.title,
+                page_location: window.location.href,
+              });
+            `,
+          }}
+        />
       </head>
       <body className="min-h-screen">
         {children}

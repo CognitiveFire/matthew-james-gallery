@@ -595,6 +595,33 @@ export const sampleArtworks: Artwork[] = [
     featured: true,
     likes: 0,
   },
+  {
+    id: '23',
+    title: 'Torden Under',
+    description: 'Innpakket i gult og blått - farger av rytme, sol og fornyelse - kroppsliggjør hun kontinuiteten av stemme på tvers av generasjoner. Hennes blikk er samtidig, men hennes tilstedeværelse tidløs: en bro mellom forfedres visdom og moderne selvdefinisjon. "Torden Under" snakker om identitet ikke som arv alene, men som skapelse - levende, tilpasningsdyktig og uten frykt.',
+    shortDescription: 'Fortiden slår gjennom henne, men rytmen er hennes egen.',
+    translations: {
+      en: {
+        title: 'Thunder Beneath',
+        description: 'Wrapped in yellow and blue — colours of rhythm, sun, and renewal — she embodies the continuity of voice across generations. Her gaze is contemporary, but her presence timeless: a bridge between ancestral wisdom and modern self-definition. "Thunder Beneath" speaks of identity not as inheritance alone, but as creation — alive, adaptive, and unafraid.',
+        shortDescription: 'The past beats through her, but the rhythm is her own.',
+      },
+      no: {
+        title: 'Torden Under',
+        description: 'Innpakket i gult og blått - farger av rytme, sol og fornyelse - kroppsliggjør hun kontinuiteten av stemme på tvers av generasjoner. Hennes blikk er samtidig, men hennes tilstedeværelse tidløs: en bro mellom forfedres visdom og moderne selvdefinisjon. "Torden Under" snakker om identitet ikke som arv alene, men som skapelse - levende, tilpasningsdyktig og uten frykt.',
+        shortDescription: 'Fortiden slår gjennom henne, men rytmen er hennes egen.',
+      }
+    },
+    materials: 'Acrylic on canvas',
+    price: 10000,
+    imageUrl: 'https://i.ibb.co/Ng4TKyQc/D8-F1384-D-AEDB-4-D67-A419-6176-BE9-F7-D65.jpg',
+    secondImageUrl: 'https://i.ibb.co/pvP4QqXw/9-E15-EB4-B-3393-41-B6-870-D-59-FA9413-F45-E.jpg',
+    dimensions: '150 x 120cm',
+    year: 2001,
+    available: false,
+    featured: true,
+    likes: 0,
+  },
 ]
 
 export const getArtworkById = (id: string): Artwork | undefined => {

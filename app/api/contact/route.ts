@@ -1,22 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server'
-import nodemailer from 'nodemailer'
+import { Resend } from 'resend'
 
-// Create Gmail transporter
-const createTransporter = () => {
-  return nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: process.env.GMAIL_USER,
-      pass: process.env.GMAIL_APP_PASSWORD, // Use App Password, not regular password
-    },
-  })
-}
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null
 
 export async function POST(request: NextRequest) {
   try {
-    // Check if Gmail is properly configured
-    if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
-      console.error('Gmail credentials not configured')
+    // Check if Resend is properly configured
+    if (!resend || !process.env.RESEND_API_KEY) {
+      console.error('RESEND_API_KEY is not configured')
       return NextResponse.json(
         { error: 'Email service not configured' },
         { status: 500 }
@@ -106,24 +97,15 @@ ${lang === 'no' ? 'Svar direkte til kunden på:' : 'Reply directly to the custom
     `
 
     // Send email to gallery owner
-    const transporter = createTransporter()
-    
-    const mailOptions = {
-      from: process.env.GMAIL_USER,
-      to: process.env.GALLERY_EMAIL || process.env.GMAIL_USER,
+    const inquiryEmail = await resend.emails.send({
+      from: process.env.FROM_EMAIL || 'noreply@matthewjamesgallery.com',
+      to: process.env.GALLERY_EMAIL || 'matthew@matthewjamesgallery.com',
       replyTo: email,
       subject: `${subjectText} - ${subject}`,
-      text: textContent,
       html: htmlContent,
-    }
+    })
 
-    try {
-      await transporter.sendMail(mailOptions)
-      console.log('Inquiry email sent successfully')
-    } catch (sendError) {
-      console.error('Error sending inquiry email:', sendError)
-      throw sendError
-    }
+    console.log('Inquiry email sent successfully:', inquiryEmail.data?.id)
 
     // Send confirmation email to customer
     const confirmationSubject = lang === 'no' 
@@ -169,20 +151,14 @@ ${lang === 'no' ? 'Svar direkte til kunden på:' : 'Reply directly to the custom
       </div>
     `
 
-    const confirmationMailOptions = {
-      from: process.env.GMAIL_USER,
+    const confirmationEmail = await resend.emails.send({
+      from: process.env.FROM_EMAIL || 'noreply@matthewjamesgallery.com',
       to: email,
       subject: confirmationSubject,
       html: confirmationHtml,
-    }
+    })
 
-    try {
-      await transporter.sendMail(confirmationMailOptions)
-      console.log('Confirmation email sent successfully')
-    } catch (sendError) {
-      console.error('Error sending confirmation email:', sendError)
-      // Don't throw here - the main email was sent successfully
-    }
+    console.log('Confirmation email sent successfully:', confirmationEmail.data?.id)
 
     return NextResponse.json({ success: true })
 

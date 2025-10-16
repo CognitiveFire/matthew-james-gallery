@@ -111,18 +111,18 @@ export const sampleArtworks: Artwork[] = [
   },
   {
     id: '5',
-    title: 'Fuglen Som Visste For Lite',
-    description: 'En glanset svarttrost sitter i rosa lys. Fuglen Som Visste For Lite balanserer realisme og holdning, delvis naturstudie, delvis noir-karakter. Den er både alvorlig og absurd, som er den perfekte balansen.',
+    title: 'Den Dømmende Svarttrost',
+    description: 'En glanset svarttrost sitter i rosa lys. Den Dømmende Svarttrost balanserer realisme og holdning, delvis naturstudie, delvis noir-karakter. Den er både alvorlig og absurd, som er den perfekte balansen.',
     shortDescription: 'En glanset svarttrost med holdning og rosa lys.',
     translations: {
       en: {
-        title: 'The Bird Who Knew Too Little',
-        description: 'A glossy blackbird sits in pink light. The Bird Who Knew Too Little balances realism and attitude, part nature study, part noir character. It\'s both serious and absurd, which is the perfect balance.',
+        title: 'The Judgmental Blackbird',
+        description: 'A glossy blackbird sits in pink light. The Judgmental Blackbird balances realism and attitude, part nature study, part noir character. It\'s both serious and absurd, which is the perfect balance.',
         shortDescription: 'A glossy blackbird with attitude and pink light.',
       },
       no: {
-        title: 'Fuglen Som Visste For Lite',
-        description: 'En glanset svarttrost sitter i rosa lys. Fuglen Som Visste For Lite balanserer realisme og holdning, delvis naturstudie, delvis noir-karakter. Den er både alvorlig og absurd, som er den perfekte balansen.',
+        title: 'Den Dømmende Svarttrost',
+        description: 'En glanset svarttrost sitter i rosa lys. Den Dømmende Svarttrost balanserer realisme og holdning, delvis naturstudie, delvis noir-karakter. Den er både alvorlig og absurd, som er den perfekte balansen.',
         shortDescription: 'En glanset svarttrost med holdning og rosa lys.',
       }
     },

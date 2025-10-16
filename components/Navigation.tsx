@@ -56,9 +56,9 @@ export default function Navigation({ lang }: NavigationProps) {
             <Image
               src="https://i.ibb.co/TMRnRpwL/mj-light.png"
               alt="Matthew James Gallery"
-              width={160}
-              height={43}
-              className="h-10 md:h-12 w-auto"
+              width={240}
+              height={65}
+              className="h-12 md:h-16 w-auto"
               priority
               unoptimized
             />

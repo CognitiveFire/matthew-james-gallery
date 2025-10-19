@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 
@@ -10,7 +9,6 @@ interface ChristmasBannerProps {
 
 export default function ChristmasBanner({ lang }: ChristmasBannerProps) {
   const [imageError, setImageError] = useState(false)
-  const [imageLoaded, setImageLoaded] = useState(false)
 
   const imageUrl = lang === 'no' 
     ? "https://i.ibb.co/WW0spNY9/1.png"
@@ -27,17 +25,16 @@ export default function ChristmasBanner({ lang }: ChristmasBannerProps) {
           <Link href={`/${lang}/contact`} className="block group">
             <div className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-500 group-hover:scale-105 bg-gray-100 min-h-[200px] flex items-center justify-center">
               {!imageError ? (
-                <Image
+                <img
                   src={imageUrl}
                   alt={altText}
-                  width={1200}
-                  height={400}
                   className="w-full h-auto object-cover"
-                  onLoad={() => setImageLoaded(true)}
-                  onError={() => setImageError(true)}
-                  priority
-                  quality={90}
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
+                  onLoad={() => console.log('Image loaded successfully')}
+                  onError={() => {
+                    console.log('Image failed to load:', imageUrl)
+                    setImageError(true)
+                  }}
+                  style={{ display: 'block' }}
                 />
               ) : (
                 <div className="text-center p-8">

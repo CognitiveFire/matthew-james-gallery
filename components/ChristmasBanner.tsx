@@ -13,8 +13,8 @@ export default function ChristmasBanner({ lang }: ChristmasBannerProps) {
   const [imageLoaded, setImageLoaded] = useState(false)
 
   const imageUrl = lang === 'no' 
-    ? "https://i.ibb.co/bgXqqrq3/Give-a-one-of-a-kind-Christmas-gift-Original-art-created-just-for-them-Commissions-now-open-1.png"
-    : "https://i.ibb.co/4nNzQ1v8/Give-a-one-of-a-kind-Christmas-gift-Original-art-created-just-for-them-Commissions-now-open.png"
+    ? "https://i.ibb.co/WW0spNY9/1.png"
+    : "https://i.ibb.co/k2X4WVXW/2.png"
 
   const altText = lang === 'no' 
     ? 'Gi en unik julegave - Original kunst, laget spesielt for dem. Bestillinger nå åpne.'

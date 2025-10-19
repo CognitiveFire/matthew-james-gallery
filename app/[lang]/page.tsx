@@ -51,7 +51,10 @@ export default async function HomePage({ params }: HomePageProps) {
             <Link href={`/${lang}/contact`} className="block group">
               <div className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-500 group-hover:scale-105">
                 <Image
-                  src="https://i.ibb.co/4nNzQ1v8/Give-a-one-of-a-kind-Christmas-gift-Original-art-created-just-for-them-Commissions-now-open.png"
+                  src={lang === 'no' 
+                    ? "https://i.ibb.co/bgXqqrq3/Give-a-one-of-a-kind-Christmas-gift-Original-art-created-just-for-them-Commissions-now-open-1.png"
+                    : "https://i.ibb.co/4nNzQ1v8/Give-a-one-of-a-kind-Christmas-gift-Original-art-created-just-for-them-Commissions-now-open.png"
+                  }
                   alt={lang === 'no' 
                     ? 'Gi en unik julegave - Original kunst, laget spesielt for dem. Bestillinger nå åpne.'
                     : 'Give a one-of-a-kind Christmas gift - Original art, created just for them. Commissions now open.'

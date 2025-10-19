@@ -1,9 +1,9 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import { getAllArtworks } from '@/data/artwork'
 import { generateOrganizationStructuredData } from '@/lib/structured-data'
 import { getDictionary } from '@/lib/dictionaries'
 import FilteredGallery from '@/components/FilteredGallery'
+import ChristmasBanner from '@/components/ChristmasBanner'
 
 interface HomePageProps {
   params: { lang: 'en' | 'no' }
@@ -44,33 +44,7 @@ export default async function HomePage({ params }: HomePageProps) {
         </div>
       </section>
 
-      {/* Christmas Commission Banner */}
-      <section className="py-8 px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center">
-            <Link href={`/${lang}/contact`} className="block group">
-              <div className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-500 group-hover:scale-105">
-                <Image
-                  src={lang === 'no' 
-                    ? "https://i.ibb.co/bgXqqrq3/Give-a-one-of-a-kind-Christmas-gift-Original-art-created-just-for-them-Commissions-now-open-1.png"
-                    : "https://i.ibb.co/4nNzQ1v8/Give-a-one-of-a-kind-Christmas-gift-Original-art-created-just-for-them-Commissions-now-open.png"
-                  }
-                  alt={lang === 'no' 
-                    ? 'Gi en unik julegave - Original kunst, laget spesielt for dem. Bestillinger nå åpne.'
-                    : 'Give a one-of-a-kind Christmas gift - Original art, created just for them. Commissions now open.'
-                  }
-                  width={1200}
-                  height={400}
-                  className="w-full h-auto object-cover"
-                  priority
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
-                />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300"></div>
-              </div>
-            </Link>
-          </div>
-        </div>
-      </section>
+      <ChristmasBanner lang={lang} />
 
       {/* Gallery Section */}
       <section className="pt-8 pb-16 px-6 lg:px-8">

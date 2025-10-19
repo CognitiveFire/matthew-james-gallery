@@ -29,26 +29,23 @@ export default function ChristmasBanner({ lang }: ChristmasBannerProps) {
                   src={imageUrl}
                   alt={altText}
                   className="w-full h-auto object-cover"
-                  onLoad={() => console.log('Image loaded successfully')}
-                  onError={() => {
-                    console.log('Image failed to load:', imageUrl)
-                    setImageError(true)
-                  }}
+                  onError={() => setImageError(true)}
                   style={{ display: 'block' }}
                 />
               ) : (
-                <div className="text-center p-8">
-                  <div className="text-2xl font-serif text-charcoal mb-4">
-                    {lang === 'no' ? '🎄 Julebestillinger Åpne!' : '🎄 Christmas Commissions Open!'}
+                <div className="text-center p-8 bg-gradient-to-r from-red-50 to-green-50 border-2 border-red-200 rounded-lg">
+                  <div className="text-3xl mb-4">🎄</div>
+                  <div className="text-2xl font-serif text-charcoal mb-4 font-bold">
+                    {lang === 'no' ? 'Julebestillinger Åpne!' : 'Christmas Commissions Open!'}
                   </div>
-                  <div className="text-lg text-warm-gray mb-4">
+                  <div className="text-lg text-warm-gray mb-6 max-w-md mx-auto">
                     {lang === 'no' 
                       ? 'Gi en unik julegave - Original kunst, laget spesielt for dem'
                       : 'Give a one-of-a-kind Christmas gift - Original art, created just for them'
                     }
                   </div>
-                  <div className="text-sm text-charcoal font-medium">
-                    {lang === 'no' ? 'Klikk for å bestille' : 'Click to commission'}
+                  <div className="inline-block bg-charcoal text-cream px-6 py-3 rounded-lg font-medium hover:bg-warm-gray transition-colors">
+                    {lang === 'no' ? 'Bestill nå' : 'Commission Now'}
                   </div>
                 </div>
               )}

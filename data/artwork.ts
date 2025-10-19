@@ -649,6 +649,33 @@ export const sampleArtworks: Artwork[] = [
     featured: true,
     likes: 0,
   },
+  {
+    id: '25',
+    title: 'The Village',
+    description: 'The Village captures a dreamlike moment in a world where perspective bends and colours dance. The tilted rooftops, checkerboard streets, and lone cow evoke a playful yet contemplative atmosphere — a reminder of how memory distorts the ordinary into the extraordinary. The bold, textured brushstrokes and warped geometry lend the piece a childlike simplicity that hides a quiet tension between familiarity and surrealism. It feels both nostalgic and disorienting, as if one were walking through a village remembered from a half-forgotten dream.',
+    shortDescription: 'Where reality tilts, and memory finds its own horizon.',
+    translations: {
+      en: {
+        title: 'The Village',
+        description: 'The Village captures a dreamlike moment in a world where perspective bends and colours dance. The tilted rooftops, checkerboard streets, and lone cow evoke a playful yet contemplative atmosphere — a reminder of how memory distorts the ordinary into the extraordinary. The bold, textured brushstrokes and warped geometry lend the piece a childlike simplicity that hides a quiet tension between familiarity and surrealism. It feels both nostalgic and disorienting, as if one were walking through a village remembered from a half-forgotten dream.',
+        shortDescription: 'Where reality tilts, and memory finds its own horizon.',
+      },
+      no: {
+        title: 'Landsbyen',
+        description: 'Landsbyen fanger et drømmelignende øyeblikk i en verden hvor perspektiv bøyer seg og farger danser. De skjeve takene, rutete gatene og den enslige kua skaper en lekende men likevel ettertenksom atmosfære — en påminnelse om hvordan minnet forvrenger det vanlige til det ekstraordinære. De dristige, teksturerte penselstrøkene og den vridde geometrien gir stykket en barnlig enkelhet som skjuler en stille spenning mellom kjennskap og surrealisme. Det føles både nostalgisk og desorienterende, som om man gikk gjennom en landsby husket fra en halvglemt drøm.',
+        shortDescription: 'Hvor virkeligheten vippes, og minnet finner sin egen horisont.',
+      }
+    },
+    materials: 'Acrylic on canvas',
+    price: 10000,
+    imageUrl: 'https://i.ibb.co/N2ZWLFTp/07-F9-A244-963-D-4-A2-B-8015-262-E2-C58-B690.jpg',
+    secondImageUrl: 'https://i.ibb.co/SXXnS6Kk/4537975-F-E049-4188-A923-79053602-A5-F3.jpg',
+    dimensions: 'Unknown',
+    year: 2023,
+    available: true,
+    featured: true,
+    likes: 0,
+  },
 ]
 
 export const getArtworkById = (id: string): Artwork | undefined => {

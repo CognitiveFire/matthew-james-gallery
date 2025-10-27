@@ -46,7 +46,7 @@ export default function ArtworkCard({ artwork, lang }: ArtworkCardProps) {
           </div>
           <div className="absolute top-4 left-4 flex flex-col gap-2">
             <StatusBadge available={artwork.available} size="sm" />
-            <DiscountBadge size="sm" />
+            {artwork.available && <DiscountBadge size="sm" />}
           </div>
         </div>
       </Link>
@@ -73,9 +73,11 @@ export default function ArtworkCard({ artwork, lang }: ArtworkCardProps) {
             <div className="font-serif text-lg font-medium text-charcoal">
               {artwork.price.toLocaleString()} {lang === 'no' ? 'NOK' : 'NOK'}
             </div>
-            <div className="font-serif text-sm text-warm-gray line-through">
-              {Math.round(artwork.price / 0.6).toLocaleString()} NOK
-            </div>
+            {artwork.available && (
+              <div className="font-serif text-sm text-warm-gray line-through">
+                {Math.round(artwork.price / 0.6).toLocaleString()} NOK
+              </div>
+            )}
           </div>
         </div>
         <div className="flex justify-between items-center">

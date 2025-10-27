@@ -44,8 +44,6 @@ export default async function HomePage({ params }: HomePageProps) {
         </div>
       </section>
 
-      <ChristmasBanner lang={lang} />
-
       {/* Gallery Section */}
       <section className="pt-8 pb-16 px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
@@ -104,6 +102,9 @@ export default async function HomePage({ params }: HomePageProps) {
           </div>
         </div>
       </section>
+
+      {/* Christmas Commissions Banner */}
+      <ChristmasBanner lang={lang} />
     </div>
     </>
   )

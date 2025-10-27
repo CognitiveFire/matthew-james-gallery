@@ -8,6 +8,7 @@ import { ArrowLeft, Calendar, Palette, Ruler } from 'lucide-react'
 import LikeButton from '@/components/LikeButton'
 import SocialShare from '@/components/SocialShare'
 import StatusBadge from '@/components/StatusBadge'
+import DiscountBadge from '@/components/DiscountBadge'
 import ArtworkImage from '@/components/ArtworkImage'
 
 interface ArtworkPageProps {
@@ -202,10 +203,18 @@ export default function ArtworkPage({ params }: ArtworkPageProps) {
               {/* Price */}
               <div className="border-t border-warm-gray/20 pt-8">
                 <div className="flex items-center justify-between mb-4">
-                  <span className="font-sans text-lg text-warm-gray">Price</span>
-                  <span className="font-serif text-3xl font-medium text-charcoal">
-                    {artwork.price.toLocaleString()} NOK
-                  </span>
+                  <div className="flex items-center gap-3">
+                    <span className="font-sans text-lg text-warm-gray">Price</span>
+                    <DiscountBadge size="md" />
+                  </div>
+                  <div className="text-right">
+                    <div className="font-serif text-3xl font-medium text-charcoal">
+                      {artwork.price.toLocaleString()} NOK
+                    </div>
+                    <div className="font-serif text-lg text-warm-gray line-through">
+                      {Math.round(artwork.price / 0.6).toLocaleString()} NOK
+                    </div>
+                  </div>
                 </div>
                 <div className="flex justify-end mb-6">
                   <StatusBadge available={artwork.available} size="lg" />

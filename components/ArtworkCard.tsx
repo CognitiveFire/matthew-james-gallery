@@ -7,6 +7,7 @@ import { Eye } from 'lucide-react'
 import LikeButton from '@/components/LikeButton'
 import SocialShare from '@/components/SocialShare'
 import StatusBadge from '@/components/StatusBadge'
+import DiscountBadge from '@/components/DiscountBadge'
 import { Artwork } from '@/types/artwork'
 import { getLocalizedArtwork } from '@/lib/artwork-utils'
 
@@ -43,8 +44,9 @@ export default function ArtworkCard({ artwork, lang }: ArtworkCardProps) {
               <Eye className="w-8 h-8 text-white" />
             </div>
           </div>
-          <div className="absolute top-4 left-4">
+          <div className="absolute top-4 left-4 flex flex-col gap-2">
             <StatusBadge available={artwork.available} size="sm" />
+            <DiscountBadge size="sm" />
           </div>
         </div>
       </Link>
@@ -67,9 +69,14 @@ export default function ArtworkCard({ artwork, lang }: ArtworkCardProps) {
           <span className="font-sans text-sm text-warm-gray">
             {artwork.dimensions}
           </span>
-          <span className="font-serif text-lg font-medium text-charcoal">
-            {artwork.price.toLocaleString()} {lang === 'no' ? 'NOK' : 'NOK'}
-          </span>
+          <div className="text-right">
+            <div className="font-serif text-lg font-medium text-charcoal">
+              {artwork.price.toLocaleString()} {lang === 'no' ? 'NOK' : 'NOK'}
+            </div>
+            <div className="font-serif text-sm text-warm-gray line-through">
+              {Math.round(artwork.price / 0.6).toLocaleString()} NOK
+            </div>
+          </div>
         </div>
         <div className="flex justify-between items-center">
           <LikeButton 

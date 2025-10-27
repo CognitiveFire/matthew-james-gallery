@@ -19,7 +19,7 @@ export const sampleArtworks: Artwork[] = [
       }
     },
     materials: 'Acrylic on canvas',
-    price: 15000,
+    price: 9000, // Reduced by 40% from 15000
     imageUrl: 'https://i.ibb.co/Lh0nWty9/1.png',
     secondImageUrl: 'https://i.ibb.co/50ycsJN/listener.jpg',
     dimensions: '50cm × 50cm',
@@ -46,7 +46,7 @@ export const sampleArtworks: Artwork[] = [
       }
     },
     materials: 'Acrylic on canvas',
-    price: 15000,
+    price: 9000, // Reduced by 40% from 15000
     imageUrl: 'https://i.ibb.co/bjFgQBqm/3-B7-DF6-AC-8897-4605-A0-C5-AAA78-D5031-A5-1-201-a.jpg',
     secondImageUrl: 'https://i.ibb.co/Y4VNWsMB/winterfox.jpg',
     dimensions: '70cm × 50cm',
@@ -73,7 +73,7 @@ export const sampleArtworks: Artwork[] = [
       }
     },
     materials: 'Acrylic on canvas',
-    price: 20000,
+    price: 7200, // Reduced by 40% from 12000 // Reduced by 40% from 20000
     imageUrl: 'https://i.ibb.co/BmqDWwN/3.png',
     secondImageUrl: 'https://i.ibb.co/TMDKWpr3/nighout.jpg',
     dimensions: '150cm × 120cm',
@@ -100,7 +100,7 @@ export const sampleArtworks: Artwork[] = [
       }
     },
     materials: 'Acrylic on canvas',
-    price: 15000,
+    price: 9000, // Reduced by 40% from 15000
     imageUrl: 'https://i.ibb.co/k2bQHrBT/4.png',
     secondImageUrl: 'https://i.ibb.co/JRp632N2/still-waters.jpg',
     dimensions: '70cm × 50cm',
@@ -127,7 +127,7 @@ export const sampleArtworks: Artwork[] = [
       }
     },
     materials: 'Acrylic on canvas',
-    price: 10000,
+    price: 6000, // Reduced by 40% from 10000
     imageUrl: 'https://i.ibb.co/rKT2qXDF/5.png',
     secondImageUrl: 'https://i.ibb.co/fzSck7JV/thebirdwhonewtoolittle.jpg',
     dimensions: '50cm × 30cm',
@@ -154,7 +154,7 @@ export const sampleArtworks: Artwork[] = [
       }
     },
     materials: 'Acrylic on canvas',
-    price: 15000,
+    price: 9000, // Reduced by 40% from 15000
     imageUrl: 'https://i.ibb.co/1GcgJXFN/6.png',
     secondImageUrl: 'https://i.ibb.co/cSDczkkV/social-listening.jpg',
     dimensions: '70cm × 50cm',
@@ -181,7 +181,7 @@ export const sampleArtworks: Artwork[] = [
       }
     },
     materials: 'Acrylic on canvas',
-    price: 15000,
+    price: 9000, // Reduced by 40% from 15000
     imageUrl: 'https://i.ibb.co/bMm2z0Kp/7.png',
     secondImageUrl: 'https://i.ibb.co/Vc9v7CF3/monsterdayoff.jpg',
     dimensions: '120cm × 100cm',
@@ -208,7 +208,7 @@ export const sampleArtworks: Artwork[] = [
       }
     },
     materials: 'Acrylic on canvas',
-    price: 10000,
+    price: 6000, // Reduced by 40% from 10000
     imageUrl: 'https://i.ibb.co/JwTLSD8n/8.png',
     secondImageUrl: 'https://i.ibb.co/JWGFCm9D/london.jpg',
     dimensions: '50cm × 50cm',
@@ -235,7 +235,7 @@ export const sampleArtworks: Artwork[] = [
       }
     },
     materials: 'Acrylic on canvas',
-    price: 10000,
+    price: 6000, // Reduced by 40% from 10000
     imageUrl: 'https://i.ibb.co/GQP5cVxT/9.png',
     secondImageUrl: 'https://i.ibb.co/G4Q7v6tN/dogwalker.jpg',
     dimensions: '50cm × 40cm',
@@ -262,7 +262,7 @@ export const sampleArtworks: Artwork[] = [
       }
     },
     materials: 'Acrylic on canvas',
-    price: 12000,
+    price: 7200, // Reduced by 40% from 12000
     imageUrl: 'https://i.ibb.co/jkkWMqXB/10.png',
     secondImageUrl: 'https://i.ibb.co/KjWw8nHf/aniceneighbiorhood.jpg',
     dimensions: '70cm × 50cm',
@@ -289,7 +289,7 @@ export const sampleArtworks: Artwork[] = [
       }
     },
     materials: 'Acrylic on canvas',
-    price: 15000,
+    price: 9000, // Reduced by 40% from 15000
     imageUrl: 'https://i.ibb.co/ccQGmx6H/11.png',
     secondImageUrl: 'https://i.ibb.co/ynQqzSRt/itsrainingagain.jpg',
     dimensions: '50cm × 50cm',
@@ -316,7 +316,7 @@ export const sampleArtworks: Artwork[] = [
       }
     },
     materials: 'Acrylic on canvas',
-    price: 10000,
+    price: 6000, // Reduced by 40% from 10000
     imageUrl: 'https://i.ibb.co/4ZXbbHpg/12.png',
     secondImageUrl: 'https://i.ibb.co/n8mQCGz5/garden.jpg',
     dimensions: '40cm × 30cm',
@@ -343,7 +343,7 @@ export const sampleArtworks: Artwork[] = [
       }
     },
     materials: 'Acrylic on canvas',
-    price: 12000,
+    price: 7200, // Reduced by 40% from 12000
     imageUrl: 'https://i.ibb.co/pvWGzw8w/13.png',
     secondImageUrl: 'https://i.ibb.co/V0DMx682/bullfighter.jpg',
     dimensions: '70cm × 50cm',
@@ -370,7 +370,7 @@ export const sampleArtworks: Artwork[] = [
       }
     },
     materials: 'Acrylic on canvas',
-    price: 15000,
+    price: 9000, // Reduced by 40% from 15000
     imageUrl: 'https://i.ibb.co/kgGJ5QVQ/gallery.png',
     secondImageUrl: 'https://i.ibb.co/fVQrHbW2/grassclipper.jpg',
     dimensions: '70cm × 50cm',
@@ -397,7 +397,7 @@ export const sampleArtworks: Artwork[] = [
       }
     },
     materials: 'Acrylic on canvas',
-    price: 15000,
+    price: 9000, // Reduced by 40% from 15000
     imageUrl: 'https://i.ibb.co/bgNSj10c/15.png',
     secondImageUrl: 'https://i.ibb.co/gZNXjYSW/bluechair.jpg',
     dimensions: '70cm × 50cm',
@@ -424,7 +424,7 @@ export const sampleArtworks: Artwork[] = [
       }
     },
     materials: 'Acrylic on canvas',
-    price: 10000,
+    price: 6000, // Reduced by 40% from 10000
     imageUrl: 'https://i.ibb.co/mm1PPb9/gallery-3.png',
     secondImageUrl: 'https://i.ibb.co/4wtJng60/innsvimming.jpg',
     dimensions: '40cm × 30cm',
@@ -451,7 +451,7 @@ export const sampleArtworks: Artwork[] = [
       }
     },
     materials: 'Acrylic on canvas',
-    price: 10000,
+    price: 6000, // Reduced by 40% from 10000
     imageUrl: 'https://i.ibb.co/G3kdRDb2/Mars-Harvest.png',
     secondImageUrl: 'https://i.ibb.co/6cmWgMNY/marsharvest.jpg',
     dimensions: '50cm × 40cm',
@@ -478,7 +478,7 @@ export const sampleArtworks: Artwork[] = [
       }
     },
     materials: 'Acrylic on canvas',
-    price: 10000,
+    price: 6000, // Reduced by 40% from 10000
     imageUrl: 'https://i.ibb.co/Kx5yLNrG/ilovethaifood.jpg',
     secondImageUrl: 'https://i.ibb.co/v4DXgnKr/ilovethaifood.jpg',
     dimensions: '50cm × 40cm',
@@ -505,7 +505,7 @@ export const sampleArtworks: Artwork[] = [
       }
     },
     materials: 'Acrylic on canvas',
-    price: 10000,
+    price: 6000, // Reduced by 40% from 10000
     imageUrl: 'https://i.ibb.co/DPwtKqLm/Bergen.png',
     secondImageUrl: 'https://i.ibb.co/7xPVBTNX/bergen.jpg',
     dimensions: '60cm × 40cm',
@@ -532,7 +532,7 @@ export const sampleArtworks: Artwork[] = [
       }
     },
     materials: 'Acrylic on canvas',
-    price: 10000,
+    price: 6000, // Reduced by 40% from 10000
     imageUrl: 'https://i.ibb.co/YTWL2LNJ/Fragmentofmyself.png',
     secondImageUrl: 'https://i.ibb.co/XfmDXhZS/fracturedself.jpg',
     dimensions: '50cm × 50cm',
@@ -559,7 +559,7 @@ export const sampleArtworks: Artwork[] = [
       }
     },
     materials: 'Acrylic on canvas',
-    price: 10000,
+    price: 6000, // Reduced by 40% from 10000
     imageUrl: 'https://i.ibb.co/B2dy23q3/Thekeyhole.png',
     secondImageUrl: 'https://i.ibb.co/CswnFHT4/keyhole.jpg',
     dimensions: '60cm × 40cm',
@@ -586,7 +586,7 @@ export const sampleArtworks: Artwork[] = [
       }
     },
     materials: 'Acrylic on canvas',
-    price: 10000,
+    price: 6000, // Reduced by 40% from 10000
     imageUrl: 'https://i.ibb.co/sd06X5c3/E022-E8-EE-5358-4404-8-BB8-5-ABC75-FC0418.jpg',
     secondImageUrl: 'https://i.ibb.co/My13hGD1/293-AEA7-C-4-C00-406-E-B956-39-C698-D57-D66.jpg',
     dimensions: '50 x 40cm',
@@ -613,7 +613,7 @@ export const sampleArtworks: Artwork[] = [
       }
     },
     materials: 'Acrylic on canvas',
-    price: 10000,
+    price: 6000, // Reduced by 40% from 10000
     imageUrl: 'https://i.ibb.co/Ng4TKyQc/D8-F1384-D-AEDB-4-D67-A419-6176-BE9-F7-D65.jpg',
     secondImageUrl: 'https://i.ibb.co/pvP4QqXw/9-E15-EB4-B-3393-41-B6-870-D-59-FA9413-F45-E.jpg',
     dimensions: '150 x 120cm',
@@ -640,7 +640,7 @@ export const sampleArtworks: Artwork[] = [
       }
     },
     materials: 'Acrylic on canvas',
-    price: 10000,
+    price: 6000, // Reduced by 40% from 10000
     imageUrl: 'https://i.ibb.co/Ld89HHb1/selma.jpg',
     secondImageUrl: 'https://i.ibb.co/v9Bs8NN/36-D35811-8332-4-C7-B-848-C-3-D5-F021-B7-D1-D.jpg',
     dimensions: '50 x 40cm',
@@ -667,7 +667,7 @@ export const sampleArtworks: Artwork[] = [
       }
     },
     materials: 'Acrylic on canvas',
-    price: 10000,
+    price: 6000, // Reduced by 40% from 10000
     imageUrl: 'https://i.ibb.co/N2ZWLFTp/07-F9-A244-963-D-4-A2-B-8015-262-E2-C58-B690.jpg',
     secondImageUrl: 'https://i.ibb.co/SXXnS6Kk/4537975-F-E049-4188-A923-79053602-A5-F3.jpg',
     dimensions: 'Unknown',
